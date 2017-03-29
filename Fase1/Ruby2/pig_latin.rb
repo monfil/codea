@@ -15,12 +15,9 @@ def converter_pig_latin_word(word)
 end
 
 def converter_pig_latin_sentence(sentence)
+  not_alowed = ['[', ']', ',', '"']
+  not_alowed.each {|sym| sentence.delete!(sym)}
   new_array = []
-  sentence.gsub!(/\W/)
-  # sentence.delete!('[')
-  # sentence.delete!(']')
-  # sentence.delete!('"')
-  # sentence.delete!(',')
   sentence.split.each {|word| new_array << converter_pig_latin_word(word)}
   new_array.map!{|item| item.to_s}.join(" ")
 end
