@@ -5,62 +5,61 @@ class Kitchener
   end
 
   def make_tortas
+    oven1 = Oven.new(1, @order)
+
     puts "Haciendo tortas..."
-    puts @order
-  end
-
-  def put_in_oven
-  end
-
-  def check_tortas
-  end
-
-  def take_out_the_oven
   end
 end
 
 class Torta
+  attr_reader :ingredient, :time
 
-  def initialize(quantity, ingredient)
-    @quantity = quantity
+  def initialize(ingredient, time)
     @ingredient = ingredient
-  end
-
-  type = {
-    :jamon => {:crudo => 1, :casi_listo => 5, :listo => 7, :quemado => 8},
-    :pollo => {:crudo => 3, :casi_listo => 8, :listo => 10, :quemado => 12},
-    :milanesa => {:crudo => 3, :casi_listo => 10, :listo => 13, :quemado => 14},
-    :pastor => {:crudo => 5, :casi_listo => 10, :listo => 15, :quemado => 16}
-  }
-  
-  def state_of_baking
-  end
+    @time = time
+  end  
 end
 
 class Oven
-  def turn_on
+  
+  def initialize (time, tray)
+    @time = time
+    @tray = tray
+    baking(time, tray)
   end
 
-  def turn_off
+  def baking(timer, tray)
+
+    for t in 0..timer
+      tray.each do |torta|
+        p status(torta, torta.time)
+      end
+    end
   end
 
-  def open
-  end
+  def status(torta, time)
 
-  def close
-  end
-
-  def timer
+    case time
+    when 0..5 then "La torta de #{torta.ingredient} está cruda."
+    #when 5..
+    end
   end
 end
 
-orden = []
-t1= [Torta.new(6, 'pastor')]
-p t1
-orden << Torta.new(2, 'jamon')
-orden << Torta.new(1, 'milanesa')
-orden << Torta.new(3, 'pastor')
+# orden = []
+# orden << Torta.new('jamon')
+# orden << Torta.new('milanesa')
+# orden << Torta.new('pastor')
 
-lolo = Kitchener.new(orden)
-lolo.make_tortas
+# lolo = Kitchener.new(orden)
+# lolo.make_tortas
 
+
+salmon = Torta.new("Salmón", 5)
+pastor = Torta.new("Pastor", 8)
+pollo = Torta.new("Pollo", 6)
+
+tray = [salmon, pastor, pollo]
+
+bake = Oven.new(8, tray)
+ 
