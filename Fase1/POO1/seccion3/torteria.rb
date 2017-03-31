@@ -5,9 +5,8 @@ class Kitchener
   end
 
   def make_tortas
-    oven1 = Oven.new(1, @order)
-
     puts "Haciendo tortas..."
+    oven1 = Oven.new(9, @order)
   end
 end
 
@@ -30,36 +29,31 @@ class Oven
 
   def baking(timer, tray)
 
-    for t in 0..timer
+    for current_time in 0..timer
       tray.each do |torta|
-        p status(torta, torta.time)
+        puts status(torta, current_time, torta.time)
       end
     end
   end
 
-  def status(torta, time)
-
-    case time
-    when 0..5 then "La torta de #{torta.ingredient} está cruda."
-    #when 5..
+  def status(torta, current_time, torta_time)
+    if current_time >= 0 && current_time <= (torta_time - 3)
+      "La torta de #{torta.ingredient} está cruda."
+    elsif current_time >= 0 && current_time <= (torta_time - 1)
+      "La torta de #{torta.ingredient} está casi lista."
+    elsif current_time > torta_time
+      "¡La torta de #{torta.ingredient} se quemó!"
+    elsif current_time = torta_time
+      "La torta de #{torta.ingredient} está lista."
     end
   end
 end
 
-# orden = []
-# orden << Torta.new('jamon')
-# orden << Torta.new('milanesa')
-# orden << Torta.new('pastor')
-
-# lolo = Kitchener.new(orden)
-# lolo.make_tortas
-
-
+# Driver code
 salmon = Torta.new("Salmón", 5)
 pastor = Torta.new("Pastor", 8)
 pollo = Torta.new("Pollo", 6)
 
-tray = [salmon, pastor, pollo]
-
-bake = Oven.new(8, tray)
- 
+orden = [salmon, pastor, pollo]
+lolo = Kitchener.new(orden)
+lolo.make_tortas
