@@ -31,6 +31,7 @@ class Person
     end
     @array_people
   end
+end
 
 class Person
 
@@ -101,5 +102,5 @@ people = Person.number_persons(20)
 person_writer = PersonWriter.new("people.csv", people)
 person_writer.create_csv
 parser = PersonParser.new('people.csv')
-#people = parser.people
-#parser.update_name("Moanfeelz", 3)
+people = parser.people
+parser.update_name("Moanfeelz", 3)
