@@ -1,7 +1,6 @@
 require 'faker'
 require 'csv'
 require 'time'
-<<<<<<< HEAD
 require 'date'
 
 class Person
@@ -32,7 +31,6 @@ class Person
     end
     @array_people
   end
-=======
 
 class Person
 
@@ -62,12 +60,10 @@ class Person
 		end
 		@array_people
 	end
->>>>>>> ac5a982c88be7de7f03878a262153c40ac5e8d7d
 end
 
 class PersonWriter
 
-<<<<<<< HEAD
   def initialize(file, people)
     @file = file
     @people = people
@@ -105,13 +101,5 @@ people = Person.number_persons(20)
 person_writer = PersonWriter.new("people.csv", people)
 person_writer.create_csv
 parser = PersonParser.new('people.csv')
-people = parser.people
-parser.update_name("Moanfeelz", 3)
-=======
-	def create_csv
-	end
-end
-
-#Driver code
-p people = Person.number_persons(3)
->>>>>>> ac5a982c88be7de7f03878a262153c40ac5e8d7d
+#people = parser.people
+#parser.update_name("Moanfeelz", 3)
