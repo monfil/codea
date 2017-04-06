@@ -1,13 +1,7 @@
 class Vehicle
-  attr_accessor :number_of_wheels, :color, :has_motor, :tank_size,
-:refuel, :number_of_gears, :age
+  attr_accessor :number_of_wheels, :color, :has_motor, :tank_size, :refuel, :number_of_gears, :age
 
   def what_am_i?
-    # Este método va a ser utilizado por varias clases y deberá regresar 
-    # el nombre de la clase desde la cual se corrió.
-    # ej.
-    # bocho = Car.new
-    # bocho.what_am_i? => Car
     self.class
   end
 
@@ -40,7 +34,6 @@ bike = Bicycle.new(8)
 skateboard = Skateboard.new
 
 vehicles = [moto, car, bike, skateboard]
-
 
 vehicles.each do |vehicle|
   vehicle.age!
