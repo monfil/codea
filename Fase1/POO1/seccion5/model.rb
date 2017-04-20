@@ -13,67 +13,53 @@ class List
 	attr_accessor :list, :arr_list
 
 	def initialize
-		@arr_list = []
+		@arr_list = CSV.read("list.csv")
 	end
 
 	def add(task)
-		@arr_list << [task.task, task.done]
-		# p @arr_list
+		CSV.open("list.csv", "a+") do |csv|
+			csv << [task.task, task.done]
+		end
 	end
 
-	def create_csv
+	def write_csv(new_list)
 		CSV.open("list.csv", "wb") do |csv|
-			@arr_list.each {|line| csv << line}
+			new_list.each {|line| csv << line}
 		end
 	end
 
 	def index
-		count = 0
+		task_array = []
 		CSV.foreach("list.csv") do |row|
-			count += 1
-			if row[1] == true
-				mark = "X"
-			else
-				mark = " "
-			end 
-			p "#{count}. [#{mark}] #{row[0]}"
-		end
+      task_array << Task.new(row[0], row[1])
+    end
+    task_array
 	end
 
-	def new_task(task)
-		add(task)
-		CSV.open("list.csv", "a+") do |csv|
-			csv << @arr_list.last
-		end
-
-		def complete(index)
-			count = 0
-			CSV.foreach("list.csv", "r+") do |row|
-				p row[1] = true if count == index
-				count += 1
+	def delete(id)
+		name = false
+		list_array = CSV.read("list.csv")
+		list_array.each_with_index do |task, index|
+			if index == (id - 1)
+				list_array.delete_at(index)
+				name = task[0]
 			end
 		end
-
-		def delete
-		end
-
+		write_csv(list_array)
+		name
 	end
-end
 
-# Driver code
-# La lista se creará al momento de seleccionar la opción para crear una tarea.
-list = List.new
-# Llamar método add para crear cada tarea
-list.add(Task.new("Bordar cositas"))
-list.add(Task.new("Hacer cositas chiquitas"))
-# El método create_csv, se llamará cuando se decida guardar la nueva lista
-list.create_csv
-# El método new_task se llamará para agregar una tarea a una lista existente
-list.new_task(Task.new("Pasear a Chester"))
-list.new_task(Task.new("Momir mucho"))
-# El método complete se usará para cambiar el estatus de una tarea a completada
-# list.complete(1)
-list.index
-list.new_task(Task.new("Alimentar a Mew"))
-puts
-list.index
+	def complete(id)
+		name = false
+		task_array = CSV.read("list.csv")
+    task_array.each_with_index do |task, index|
+    	if index == (id - 1)
+    		task[1] = true
+    		name = task[0]
+    	end
+    end
+    write_csv(task_array)
+    name
+	end
+
+end
