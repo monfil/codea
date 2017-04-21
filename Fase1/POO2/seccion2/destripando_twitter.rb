@@ -5,16 +5,16 @@ class TwitterScrapper
   
   def initialize(url)
     @twitter_account = Nokogiri::HTML(open(url.join("")))
-    @user_info = []
   end
 
   def extract_userinfo
-    @user_info << @twitter_account.search(".ProfileHeaderCard-name > a").first.inner_text
-    @user_info << @twitter_account.search(".u-linkComplex-target").first.inner_text
-    @user_info << @twitter_account.search(".ProfileHeaderCard-bio").inner_text
-    @user_info << @twitter_account.search(".ProfileHeaderCard-locationText").inner_text.chop!.strip!
-    @user_info << extract_stats
-    extract_tweets
+    user_info = []
+    user_info << @twitter_account.search(".ProfileHeaderCard-name > a").first.inner_text
+    user_info << @twitter_account.search(".u-linkComplex-target").first.inner_text
+    user_info << @twitter_account.search(".ProfileHeaderCard-bio").inner_text
+    user_info << @twitter_account.search(".ProfileHeaderCard-locationText").inner_text.chop!.strip!
+    user_info << extract_stats
+    user_info
   end
 
   def extract_stats
@@ -32,13 +32,27 @@ class TwitterScrapper
     tweets.map do |tweet|
       time = tweet.css(".content .tweet-timestamp ._timestamp").inner_text
       text = tweet.css(".content .js-tweet-text-container .TweetTextSize").inner_text
-      p rt = tweet.css('.content .stream-item-footer .ProfileTweet-actionList.js-actions .ProfileTweet-action.ProfileTweet-action--retweet.js-toggleState.js-toggleRt .ProfileTweet-actionButton.js-actionButton.js-actionRetweet .IconTextContainer .ProfileTweet-actionCount .ProfileTweet-actionCountForPresentation').first.inner_text.strip!
-      p fav = tweet.search('.content .stream-item-footer .ProfileTweet-actionList.js-actions .ProfileTweet-action.ProfileTweet-action--favorite.js-toggleState .ProfileTweet-actionButton.js-actionButton.js-actionFavorite .IconTextContainer .ProfileTweet-actionCount').inner_text.strip!
+      rt = tweet.css(".content .ProfileTweet-action--retweet .ProfileTweet-actionCount").inner_text.strip!.split
+
+      fav = tweet.search(".content .ProfileTweet-action--favorite .ProfileTweet-actionCount").inner_text.strip!.split
         puts "#{time}: #{text} "
-        puts "RT:#{rt}    Fav: #{fav} "
-      end
+        puts "RT:#{rt[0]}    Fav: #{fav[0]} \n\n"
+    end
+    return ""
+  end
+
+  def print
+    puts "Username: #{extract_userinfo[0]}"
+    puts "@#{extract_userinfo[1]}"
+    puts "Bio: #{extract_userinfo[2]}"
+    puts "Location: #{extract_userinfo[3]}"
+    puts "-" * 100
+    puts "Stats: Tweets: #{extract_userinfo[4][0]}, Following: #{extract_userinfo[4][1]}, Followers: #{extract_userinfo[4][2]}, Likes: #{extract_userinfo[4][3]}, Lists: #{extract_userinfo[4][4]}"
+    puts "-" * 100
+    puts "Tweets:\n\n"
+    extract_tweets
   end
 
 end
 
-p TwitterScrapper.new(ARGV).extract_userinfo
+TwitterScrapper.new(ARGV).print
