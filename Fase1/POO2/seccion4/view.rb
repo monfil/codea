@@ -1,8 +1,10 @@
 class View
   def main_menu
+    system "clear"
+    puts "*" * 62
     puts "\nWelcome to the online store **Tlanemani**, (www.tlanemani.com)"
-    puts "-" * 62
-    puts "Select an   option number: "
+    puts "\n", "*" * 62
+    puts "\nSelect an   option number:\n\n"
     puts "1. Login."
     puts "2. Register."
     puts "3. Exit.\n\n"
@@ -10,6 +12,7 @@ class View
   end
 
   def login_selected
+    system  "clear"
     login_data = []
     puts "Email: "
     login_data << gets.chomp!
@@ -19,6 +22,7 @@ class View
   end
 
   def register_selected
+    system  "clear"
     user_data = []
 
     ask = lambda do
@@ -44,7 +48,7 @@ class View
   end
 
   def admin_menu
-    puts "Select an option number: "
+    puts "\nSelect an option number:\n\n"
     puts "1. Add products."
     puts "2. Delete products."
     puts "3. Update products."
@@ -55,39 +59,74 @@ class View
   end
 
   def seller_menu
-    puts "Select an option number: "
+    puts "\nSelect an option number:\n\n"
     puts "1. Create a catalog."
     puts "2. Delete a catalog."
     puts "3. Add products to the catalog."
     puts "4. Delete products from the catalog."
     puts "5. Catalog index."
-    puts "6. Logout"
+    puts "6. Logout."
   end
 
   def client_menu
-    puts "Select an option number: "
+    puts "\nSelect an option number:\n\n"
     puts "1. Search a product."
     puts "2. Logout."
   end
 
   def welcome_user(user)
-    puts "Welcome #{user.email}. Type: #{user.class}"
-    case user.class
-    when 'Admin'
+    system  "clear"
+    puts "*" * 62
+    puts "\n Welcome, #{user.email} \t\t\tType: #{user.class}"
+    puts "\n", "*" * 62
+    type_user = user.class.to_s
+    case type_user
+    when "Admin"
       admin_menu
-    when 'Seller'
+    when "Seller"
       seller_menu
-    when 'Client'
+    when "Client"
       client_menu
     end
   end
 
+  def successful_registration
+    system  "clear"
+    puts "*" * 65
+    puts "\n\nYour registration has been successful, press any key to continue."
+    puts "\n\n", "*" * 65
+    gets
+  end
+
+  def wrong_account_message(email)
+    system "clear"
+    puts "*" * (74 + email.length)
+    puts "\n\nThe account <<#{email}>> doesn't exist. Press Y to try again, or any key to exit.\n"
+    puts "\n\n", "*" * (74 + email.length)
+    gets.upcase.chomp!
+  end
+
+
+def wrong_password_message(email)
+  system "clear"
+  puts "*" * (42 + email.length)
+  puts "\nThe password to the account <<#{email}>> is wrong.\n\nPress Y to try again, or any key to exit.\n"
+  puts "\n", "*" * (42 + email.length)
+  gets.upcase.chomp!
+end
+
   def exit_selected
+    system  "clear"
+    puts "*" * 62
     puts "\nYou've left from the store.\n\n"
+    puts "*" * 62
   end
 
   def error
+    system "clear"
+    puts "*" * 68
     puts "You've selected an incorrect option, please enter a valid option: \n\n"
+    puts "*" * 68
     gets.chomp!
   end
 end

@@ -19,8 +19,11 @@ class Store
         end
       end
     end
-    p user
+    user
   end
+
+  
+
 end
 
 class Product

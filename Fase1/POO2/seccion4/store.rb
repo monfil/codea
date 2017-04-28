@@ -12,7 +12,25 @@ class MainControler
     login_data = @view.login_selected
     email = login_data[0]
     password = login_data[1]
-    user = @store.login(email, password)
+    user_login = @store.login(email, password)
+    if user_login[0] == false
+      try_again = @view.wrong_account_message(email)
+      try_again == "Y" ? login : exit
+    elsif user_login[1] == false
+      try_again = @view.wrong_password_message(email)
+      try_again == "Y" ? login : exit
+    else
+      type = user_login[2]
+      case type
+      when "admin"
+        logged_user = Admin.new(email, password)
+      when "seller"
+        logged_user = Seller.new(email, password)
+      when "client"
+        logged_user = Client.new(email, password)
+      end
+      @view.welcome_user(logged_user)
+    end
   end
 
   def register
@@ -24,12 +42,14 @@ class MainControler
     when 'seller'
       seller = Seller.new(email, password)
       @store.add_user(seller)
-      @view.welcome_user(seller)
+      logged_user = Seller.new(email, password)
     when 'client'
       client = Client.new(email, password)
       @store.add_user(client)
-      @view.welcome_user(client)
+      logged_user = Client.new(email, password)
     end
+    @view.successful_registration
+    @view.welcome_user(logged_user)
   end
 
   def exit
