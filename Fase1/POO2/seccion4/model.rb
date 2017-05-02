@@ -22,12 +22,16 @@ class Store
     user
   end
 
-  
-
 end
 
 class Product
+  attr_accessor :id, :description, :price
 
+  def initialize(description, price)
+    @@id += 1
+    @description = description
+    @price = price
+  end
 end
 
 class User
@@ -37,11 +41,14 @@ class User
     @email = email
     @password = password
   end
-
 end
 
 class Admin < User
-
+  def add_product(product)
+    CSV.open("product.csv", "a+") do |csv|
+      csv << [product.id, product.description, product.price]
+    end
+  end
 end
 
 class Seller < User
