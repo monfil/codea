@@ -16,7 +16,7 @@ class View
     login_data = []
     puts "Email: "
     login_data << gets.chomp!
-    puts "Password: "
+    puts "\nPassword: "
     login_data << gets.chomp!
     login_data
   end
@@ -47,31 +47,40 @@ class View
     user_data
   end
 
-  def admin_menu
+  def admin_menu(user)
+    welcome_user(user)
     puts "\nSelect an option number:\n\n"
-    puts "1. Add products."
-    puts "2. Delete products."
-    puts "3. Update products."
-    puts "4. Products index."
-    puts "5. Delete users."
-    puts "6. Users index."
-    puts "7. Logout."
+    puts "1. Delete products."
+    puts "2. Products index."
+    puts "3. Delete users."
+    puts "4. Users index."
+    puts "5. Logout."
+    gets.chomp!
   end
 
-  def seller_menu
-    puts "\nSelect an option number:\n\n"
-    puts "1. Create a catalog."
-    puts "2. Delete a catalog."
-    puts "3. Add products to the catalog."
-    puts "4. Delete products from the catalog."
-    puts "5. Catalog index."
-    puts "6. Logout."
+  def delete_product
+    puts "\nPlease, enter the id of the product to delete:\n\n"
+    id = gets.chomp!
   end
 
-  def client_menu
+  def seller_menu(user)
+    welcome_user(user)
     puts "\nSelect an option number:\n\n"
-    puts "1. Search a product."
-    puts "2. Logout."
+    puts "1. Products index."
+    puts "2. Add a product."
+    puts "3. Update a product."
+    puts "4. Delete a product."
+    puts "5. Logout."
+    gets.chomp!
+  end
+
+  def client_menu(user)
+    welcome_user(user)
+    puts "\nSelect an option number:\n\n"
+    puts "1. Products index."
+    puts "2. Buy."
+    puts "3. Logout."
+    gets.chomp!
   end
 
   def welcome_user(user)
@@ -79,15 +88,6 @@ class View
     puts "*" * 62
     puts "\n Welcome, #{user.email} \t\t\tType: #{user.class}"
     puts "\n", "*" * 62
-    type_user = user.class.to_s
-    case type_user
-    when "Admin"
-      admin_menu
-    when "Seller"
-      seller_menu
-    when "Client"
-      client_menu
-    end
   end
 
   def successful_registration
@@ -100,20 +100,11 @@ class View
 
   def wrong_account_message(email)
     system "clear"
-    puts "*" * (74 + email.length)
-    puts "\n\nThe account <<#{email}>> doesn't exist. Press Y to try again, or any key to exit.\n"
-    puts "\n\n", "*" * (74 + email.length)
+    puts "*" * (93 + email.length)
+    puts "\n\nThe account <<#{email}>> and the password doesn't match. Press Y to try again, or any key to exit.\n"
+    puts "\n\n", "*" * (93 + email.length)
     gets.upcase.chomp!
   end
-
-
-def wrong_password_message(email)
-  system "clear"
-  puts "*" * (42 + email.length)
-  puts "\nThe password to the account <<#{email}>> is wrong.\n\nPress Y to try again, or any key to exit.\n"
-  puts "\n", "*" * (42 + email.length)
-  gets.upcase.chomp!
-end
 
   def exit_selected
     system  "clear"
@@ -129,4 +120,15 @@ end
     puts "*" * 68
     gets.chomp!
   end
+
+  def add_product_selected
+    system  "clear"
+    product = []
+    puts "\nPlease, enter the description of the: "
+    product << gets.chomp!
+    puts "\nPlease, enter the price of the product: "
+    product << gets.chomp!
+    product
+  end
+
 end

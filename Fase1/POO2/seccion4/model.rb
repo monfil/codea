@@ -8,27 +8,33 @@ class Store
   end
 
   def login(email, password)
-    user = [false]
     CSV.foreach("user.csv") do |row|
-      if row[0] == email
-        user[0] = row[0]
-        if row[1] == password
-          user = row
-        else
-          user << false
+      if row[0] == email && row[1] == password
+        type = row[2]
+        case type
+        when "admin"
+          return Admin.new(row[0], row[1])
+        when "seller"
+          return Seller.new(row[0], row[1])
+        when "client"
+          return Client.new(row[0], row[1])
         end
       end
     end
-    user
+    nil
   end
 
+  def add_product(product)
+    CSV.open("product.csv", "a+") do |csv|
+      csv << [product.description, product.price]
+    end
+  end
 end
 
 class Product
-  attr_accessor :id, :description, :price
+  attr_accessor :description, :price
 
   def initialize(description, price)
-    @@id += 1
     @description = description
     @price = price
   end
@@ -44,11 +50,7 @@ class User
 end
 
 class Admin < User
-  def add_product(product)
-    CSV.open("product.csv", "a+") do |csv|
-      csv << [product.id, product.description, product.price]
-    end
-  end
+  
 end
 
 class Seller < User

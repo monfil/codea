@@ -8,28 +8,108 @@ class MainControler
     @option = @view.main_menu
   end
 
+  def admin_options(option)
+    case option
+    when "1"
+      
+    when "2"
+
+    when "3"
+
+    when "4"
+
+    when "5"
+
+    when "6"
+
+    when "7"
+      exit
+    else
+      admin_options(@view.error)
+    end
+  end
+
+  def delete_product
+    id = @view.delete_product
+    
+  end
+
+  def products_index
+  end
+
+  def delete_users
+  end
+
+  def users_index
+  end
+
+  def seller_options(option)
+    case option
+    when "1"
+
+    when "2"
+
+    when "3"
+
+    when "4"
+
+    when "5"
+
+    when "6"
+      exit
+    else
+      seller_options(@view.error)
+    end
+  end
+  
+  def add_product
+    product = @view.add_product_selected
+    description = product[0]
+    price = product[1]
+    new_product = Product.new(description, price)
+    @store.add_product(new_product)
+  end
+
+  def update_product
+  end
+
+  def client_options(option)
+    case option
+    when "1"
+
+    when "2"
+    
+    when "3"
+      exit
+    else
+      client_options(@view.error)
+    end
+  end
+
+  def buy
+  end
+
   def login
     login_data = @view.login_selected
     email = login_data[0]
     password = login_data[1]
-    user_login = @store.login(email, password)
-    if user_login[0] == false
+    p logged_user = @store.login(email, password)
+    if logged_user == nil
       try_again = @view.wrong_account_message(email)
       try_again == "Y" ? login : exit
-    elsif user_login[1] == false
-      try_again = @view.wrong_password_message(email)
-      try_again == "Y" ? login : exit
     else
-      type = user_login[2]
+      type = logged_user.class.to_s
       case type
-      when "admin"
-        logged_user = Admin.new(email, password)
-      when "seller"
-        logged_user = Seller.new(email, password)
-      when "client"
-        logged_user = Client.new(email, password)
+      when "Admin"
+        option = @view.admin_menu(logged_user)
+        admin_options(option)
+      when "Seller"
+        option = @view.seller_menu(logged_user)
+        seller_options(option)
+      when "Client"
+        option = @view.admin_client(logged_user)
+        client_options(option)
       end
-      @view.welcome_user(logged_user)
     end
   end
 
@@ -43,13 +123,15 @@ class MainControler
       seller = Seller.new(email, password)
       @store.add_user(seller)
       logged_user = Seller.new(email, password)
+      @view.successful_registration
+      @view.seller_menu(logged_user)  
     when 'client'
       client = Client.new(email, password)
       @store.add_user(client)
       logged_user = Client.new(email, password)
+      @view.successful_registration
+      @view.client_menu(logged_user)
     end
-    @view.successful_registration
-    @view.welcome_user(logged_user)
   end
 
   def exit
