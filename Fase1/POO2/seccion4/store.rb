@@ -13,7 +13,7 @@ class MainControler
     when "1"
       
     when "2"
-
+      product_index
     when "3"
 
     when "4"
@@ -34,21 +34,23 @@ class MainControler
     
   end
 
-  def products_index
+  def product_index
+    product_array = @store.product_index
+    @view.print_product_index(product_array)
   end
 
   def delete_users
   end
 
-  def users_index
+  def user_index
   end
 
   def seller_options(option)
     case option
     when "1"
-
+      product_index
     when "2"
-
+      add_product
     when "3"
 
     when "4"

@@ -60,7 +60,17 @@ class View
 
   def delete_product
     puts "\nPlease, enter the id of the product to delete:\n\n"
-    id = gets.chomp!
+    gets.chomp!
+  end
+
+  def print_product_index(product_array)
+    system "clear"
+    puts "*" * 62
+    puts " \t\t\t \n*** Product list ***"
+    puts "\n", "*" * 62, "\n"
+    product_array.each_with_index do |product, index|
+      puts "#{index + 1}. #{product.description} ---> $ #{product.price}"
+    end
   end
 
   def seller_menu(user)
