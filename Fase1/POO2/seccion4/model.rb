@@ -86,16 +86,53 @@ class User
 end
 
 class Admin < User
-
-  def delete_user
+  
+  def delete_user(id, store)
+    email = false
+    user_array = CSV.read("user.csv")
+    user_array.each_with_index do |user, index|
+      if index == (id - 1)
+        user_array.delete_at(index)
+        email = user[0]
+      end
+    end
+    store.write_csv(user_array, "user.csv")
+    email
   end
   
 end
 
 class Seller < User
 
+def update_product(id, field, new_value, store)
+  values = []
+  product_array = CSV.read("product.csv")
+
+  product_array.each_with_index do |product, index|
+    if index == (id - 1)
+      values << product[field - 1]
+      product[field-1] = new_value
+      values << new_value
+      store.write_csv(product_array, "product.csv")
+      return values
+    end
+  end
+  nil    
+end
+
 end
 
 class Client < User
-
+  def buy_product(id, store)
+    description = false
+    product_array = CSV.read("product.csv")
+    product_array.each_with_index do |product, index|
+      if index == (id - 1)
+        product_array.delete_at(index)
+        description = product[0]
+      end
+    end
+    store.write_csv(product_array, "product.csv")
+    description
+  end
 end
