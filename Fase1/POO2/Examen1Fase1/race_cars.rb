@@ -22,6 +22,13 @@ class RaceCar
 	end
 
 	def race_car_level
+		average_speed = self.average_speed
+		case average_speed
+		when 0..6 then "Principiante"
+		when 6.1..7 then "Normal"
+		when 7.1..10 then "Medio"
+		when 10.1..19 then "Avanzado"
+		end
 	end
 
 end
@@ -56,12 +63,28 @@ def search(car, team)
 	team.cars.each { |race_car| return "#{race_car.name} is a racer" if race_car.name == car }
 end
 
-
 #método para generar la tabla
-
+def print_table(team)
+	cars_array = name_level_car(team)
+	p "-" * 36
+	p "|    Name         |    Level        |"
+	p "-" * 36
+	cars_array.each do |row|
+		space1 = 14 - row[0].length
+		space2 = 14 - row[1].length
+		spaces1 = " " * space1
+		spaces2 = " " * space2
+		p "|   #{row[0]}#{spaces1}|   #{row[1]}#{spaces2}|"
+	end
+		p "-" * 36
+end
 
 #método para mostrar nombre y nivel del race car
-
+def name_level_car(team)
+	team.cars.map do |race_car|
+		[race_car.name, race_car.race_car_level]
+	end
+end
 
 
 #instancias de RaceCar
@@ -92,6 +115,12 @@ p search("Power", team_one) == "Power is a racer"
 
 # calculate average speed of team
 p team_one.average_speed_of_team
-# #ej. 10.66 
 
-# #método para mostrar nombre y nivel del race car
+# Muestra el nivel de un racecar
+p car1.race_car_level
+
+# método para mostrar nombre y nivel del race car
+p name_level_car(team_one)
+
+# método que imprime la tabla
+print_table(team_one)
