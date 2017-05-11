@@ -1,0 +1,2 @@
+select count (CustomerID) from orders where CustomerID = 3;
+select count(Orders.CustomerID) from Orders, Customers where Customers.ContactName = 'Jim Wood';

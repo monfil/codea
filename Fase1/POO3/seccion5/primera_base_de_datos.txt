@@ -1,0 +1,29 @@
+cat << EOF > ~/.sqliterc
+.headers on
+.mode column
+EOF
+
+CREATE TABLE USUARIOS (
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   nombre VARCHAR(64) NOT NULL,
+   apellido VARCHAR(64) NOT NULL,
+   email VARCHAR(128) UNIQUE NOT NULL, 
+   fecha_nacimiento DATETIME NOT NULL,
+   genero VARCHAR(10) NOT NULL,
+   apodo VARCHAR(64) NOT NULL
+   );
+
+INSERT INTO usuarios 
+   (nombre, apellido, email, fecha_nacimiento, genero, apodo)
+   VALUES
+   ('Carlos', 'Ribero', 'carlos@yahoo.com', '1970-11-03', 'masculino', 'Charly');
+
+   SELECT * FROM usuarios;
+
+   ALTER TABLE USUARIOS
+   ADD COLUMN  apodo VARCHAR(64);
+
+   UPDATE usuarios
+   SET apellido = 'Rivero', fecha_nacimiento = '1980-11-03'
+  WHERE id = 1;
+   select * from usuarios;
