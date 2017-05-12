@@ -1,13 +1,34 @@
+El total de ordenes del cliente con el ID 3:
 SELECT COUNT(CustomerID) AS 'Total orders from client 3' FROM Orders WHERE CustomerID=3;
 
+El total de ordenes del cliente con el ContactName igual a 'Jim Wood':
 SELECT COUNT(Orders.CustomerID) AS 'Total orders from client Jim Wood' FROM Orders JOIN Customers ON Customers.CustomerID = Orders.CustomerID WHERE ContactName = 'Jim Wood';
 
+El total de ordenes del cliente con CompanyName igual a 'Slots Carpet':
 SELECT COUNT(Orders.CustomerID) AS 'Total orders from company Slots Carpet:' FROM Orders JOIN Customers ON Customers.CustomerID = Orders.CustomerID WHERE CompanyName = 'Slots Carpet';
 
+El total de ordenes de cada compañía ordenado de manera descendente:
 SELECT Customers.CompanyName, COUNT(Orders.CustomerID) AS 'Total orders:' FROM Orders JOIN Customers ON Customers.CustomerID = Orders.CustomerID GROUP BY Customers.CustomerID ORDER BY COUNT(Orders.CustomerID) DESC;
 
+El total de ordenes de cada compañía ordenado de manera ascendente:
 SELECT Customers.CompanyName, COUNT(Orders.CustomerID) AS 'Total orders:' FROM Orders JOIN Customers ON Customers.CustomerID = Orders.CustomerID GROUP BY Customers.CustomerID ORDER BY COUNT(Orders.CustomerID) ASC;
 
+La compañía con el mayor número de ordenes:
 SELECT Customers.CompanyName, COUNT(Orders.CustomerID) AS 'Total orders:' FROM Orders JOIN Customers ON Customers.CustomerID = Orders.CustomerID GROUP BY Customers.CustomerID ORDER BY COUNT(Orders.CustomerID) DESC LIMIT 1;
 
+La suma total de piezas que fueron ordenadas por cada compañía. 
 SELECT Customers.CompanyName, SUM(OrderDetails.Quantity) FROM OrderDetails JOIN Orders ON Orders.OrderID = OrderDetails.OrderID JOIN Customers ON Customers.CustomerID = Orders.CustomerID GROUP BY Customers.CompanyName;
+
+El monto total en pesos de la orden con ID 4:
+SELECT OrderID, SUM(UnitPrice * Quantity) FROM OrderDetails WHERE OrderID = 4;
+
+El monto total en pesos de cada orden:
+SELECT OrderID, SUM(UnitPrice * Quantity) FROM OrderDetails GROUP BY OrderID;
+
+La consulta del inciso anterior pero únicamente mostrando aquellas ordenes que sean mayores a $1,000.00 pesos:
+SELECT OrderID, SUM(UnitPrice * Quantity) FROM OrderDetails GROUP BY OrderID HAVING SUM(UnitPrice * Quantity) > 1000;
+
+El total de piezas en cada orden :
+SELECT OrderID, SUM(Quantity) FROM OrderDetails GROUP BY OrderID;
+
+
