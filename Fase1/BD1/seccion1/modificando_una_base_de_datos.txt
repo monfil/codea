@@ -1,0 +1,31 @@
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, RequiredDate,ShippedDate) VALUES (21, 5, '2017-05-09', '2017-05-13','2017-05-12');
+
+INSERT INTO Customers (CustomerID, CompanyName, ContactName, ContactTitle, Address, City, State) VALUES (6, 'ACME', 'Mary Poppins', 'Owner', '345 Green Hills', 'Huston', 'TX');
+
+SELECT OrderID, OrderDate FROM Orders JOIN Customers ON Customers.CustomerID = Orders.CustomerID WHERE Customers.CompanyName = 'Floor Co.';
+
+SELECT OrderID, Orders.CustomerID, OrderDate FROM Orders JOIN Customers ON Customers.CustomerID = Orders.CustomerID WHERE Customers.CompanyName = 'Floor Co.' AND OrderDate > '2013-01-01';
+
+UPDATE Orders SET CustomerID = 6 WHERE CustomerID = 3 AND OrderDate > '2013-01-01';
+
+UPDATE OrderDetails SET UnitPrice = UnitPrice + 2 WHERE UnitPrice > 5;
+
+SELECT * FROM OrderDetails WHERE UnitPrice > 5;
+
+SELECT * FROM Orders WHERE CustomerID = 5;
+
+DELETE FROM OrderDetails WHERE OrderID = 13;
+
+SELECT * FROM OrderDetails WHERE OrderID = 13 OR OrderID = 17 OR OrderID = 21;
+
+DELETE FROM Orders WHERE CustomerID = 5;
+
+SELECT * FROM Orders;
+
+DELETE FROM Customers WHERE CustomerID = 5;
+
+SELECT * FROM Customers;
+
+select count(*) from OrderDetails;
+
+select count(*) from Orders;
