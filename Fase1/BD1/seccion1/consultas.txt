@@ -1,2 +1,13 @@
-select count (CustomerID) from orders where CustomerID = 3;
-select count(Orders.CustomerID) from Orders, Customers where Customers.ContactName = 'Jim Wood';
+SELECT COUNT(CustomerID) AS 'Total orders from client 3' FROM Orders WHERE CustomerID=3;
+
+SELECT COUNT(Orders.CustomerID) AS 'Total orders from client Jim Wood' FROM Orders JOIN Customers ON Customers.CustomerID = Orders.CustomerID WHERE ContactName = 'Jim Wood';
+
+SELECT COUNT(Orders.CustomerID) AS 'Total orders from company Slots Carpet:' FROM Orders JOIN Customers ON Customers.CustomerID = Orders.CustomerID WHERE CompanyName = 'Slots Carpet';
+
+SELECT Customers.CompanyName, COUNT(Orders.CustomerID) AS 'Total orders:' FROM Orders JOIN Customers ON Customers.CustomerID = Orders.CustomerID GROUP BY Customers.CustomerID ORDER BY COUNT(Orders.CustomerID) DESC;
+
+SELECT Customers.CompanyName, COUNT(Orders.CustomerID) AS 'Total orders:' FROM Orders JOIN Customers ON Customers.CustomerID = Orders.CustomerID GROUP BY Customers.CustomerID ORDER BY COUNT(Orders.CustomerID) ASC;
+
+SELECT Customers.CompanyName, COUNT(Orders.CustomerID) AS 'Total orders:' FROM Orders JOIN Customers ON Customers.CustomerID = Orders.CustomerID GROUP BY Customers.CustomerID ORDER BY COUNT(Orders.CustomerID) DESC LIMIT 1;
+
+SELECT Customers.CompanyName, SUM(OrderDetails.Quantity) FROM OrderDetails JOIN Orders ON Orders.OrderID = OrderDetails.OrderID JOIN Customers ON Customers.CustomerID = Orders.CustomerID GROUP BY Customers.CompanyName;
