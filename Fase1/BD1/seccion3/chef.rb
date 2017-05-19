@@ -23,8 +23,17 @@ class Chef
           email VARCHAR(64) NOT NULL,
           phone VARCHAR(64) NOT NULL,
           created_at DATETIME NOT NULL,
-          updated_at DATETIME NOT NULL
+          updated_at DATETIME NOT NULL,
+          CONSTRAINT Name_Last UNIQUE (first_name, last_name)
         );
+      SQL
+    )
+  end
+
+  def self.drop
+    Chef.db.execute(
+      <<-SQL
+        DROP DATABASE chef;
       SQL
     )
   end
@@ -38,6 +47,7 @@ class Chef
           ('Ferran', 'Adriá', '1985-02-09', 'ferran.adria@elbulli.com', '42381093238', DATETIME('now'), DATETIME('now')),
         -- Añade aquí más registros
           ('Isaac', 'Gonzalez', '1986-05-18', 'jah_razta86@hotmail.com', '5527541207', DATETIME('now'), DATETIME('now')),
+          
           ('Roberto', 'Herrera', '1990-07-19', 'rherrerarami@gmail.com', '5512457856', DATETIME('now'), DATETIME('now')),
           ('Chester', 'Di Caprio', '1986-11-30', 'yeyi@mail.com', '12333143108', DATETIME('now'), DATETIME('now')),
           ('Trobin', 'Del Rayo', '2015-01-11', 'trobin@mail.com', '42223239306', DATETIME('now'), DATETIME('now')),
@@ -56,13 +66,13 @@ class Chef
   end
 
   def self.where(field, data)
-    Chef.db.execute("SELECT * FROM chefs WHERE #{field} = ?", "#{data}")
+    # Chef.db.execute("SELECT * FROM chefs WHERE #{field} = ?", data)
     
-    # Chef.db.execute(
-    #   <<-SQL
-    #     SELECT * FROM Chefs WHERE '"#{field}" = ?, "#{data}"';
-    #   SQL
-    # )
+    Chef.db.execute(
+      <<-SQL
+        SELECT * FROM Chefs WHERE "#{field}" = ?, "#{data}";
+      SQL
+    )
   end
 
   def save

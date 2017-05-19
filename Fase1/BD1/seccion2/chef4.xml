@@ -44,9 +44,6 @@
 <row name="name" null="1" autoincrement="0">
 <datatype>VARCHAR(70)</datatype>
 <default>NULL</default></row>
-<row name="category" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
 <row name="created_at" null="1" autoincrement="0">
 <datatype>TIMESTAMP</datatype>
 <default>NULL</default></row>
@@ -55,7 +52,6 @@
 <default>NULL</default></row>
 <key type="UNIQUE" name="meal_category">
 <part>name</part>
-<part>category</part>
 </key>
 <key type="PRIMARY" name="">
 <part>id_meal</part>
@@ -87,9 +83,13 @@
 </key>
 </table>
 <table x="824" y="220" name="chef_menus">
-<row name="id_menu" null="1" autoincrement="1">
+<row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="id_menu" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="menu" row="id" />
+</row>
 <row name="chef" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="chefs" row="id_chef" />
@@ -102,26 +102,19 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="categories" row="id" />
 </row>
-<row name="id_menu" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="menu" row="id" />
-</row>
 <row name="created_at" null="1" autoincrement="0">
 <datatype>TIMESTAMP</datatype>
 <default>NULL</default></row>
 <row name="updated_at" null="1" autoincrement="0">
 <datatype>TIMESTAMP</datatype>
 <default>NULL</default></row>
-<key type="UNIQUE" name="meal_chef">
-<part>chef</part>
-<part>meal</part>
-</key>
 <key type="PRIMARY" name="">
-<part>id_menu</part>
+<part>id</part>
 </key>
 <key type="UNIQUE" name="">
-<part>chef</part>
+<part>meal</part>
 <part>category</part>
+<part>chef</part>
 </key>
 </table>
 <table x="579" y="150" name="chefs">
@@ -178,7 +171,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1129" y="221.36363384152253" name="menu">
+<table x="1129" y="221" name="menu">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
