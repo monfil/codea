@@ -31,7 +31,7 @@ module MiniActiveRecord
     def self.execute(query, *args)
       raise NotConnectedError, "You are not connected to a database." unless connected?
 
-      prepared_args = args.map { |arg| prepare_value(arg) }
+      p prepared_args = args.map { |arg| prepare_value(arg) }
       MiniActiveRecord::Model.connection.execute(query, *prepared_args)
     end
 
@@ -72,6 +72,28 @@ module MiniActiveRecord
       "#<#{self.class} #{attribute_str}>"
     end
 
+    # ******************** Métodos refactorizados **************************
+
+
+
+
+    def self.all
+      MiniActiveRecord::Model.execute("SELECT * FROM #{self}s").map do |row|
+        self.new(row)
+      end
+    end
+
+    def self.where(query, *args)
+      MiniActiveRecord::Model.execute("SELECT * FROM #{self}s WHERE #{query}", *args).map do |row|
+        self.new(row)
+      end
+    end
+
+    def self.find(pk)
+      self.where('id = ?', pk).first
+    end
+
+    # ******************** Métodos refactorizados **************************
 
     private
 
