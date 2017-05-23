@@ -4,6 +4,29 @@ module MiniActiveRecord
 
   class Model
 
+    attr_reader :attributes, :old_attributes
+
+    def self.attribute_names
+      @attribute_names
+    end
+
+    def self.attribute_names=(attribute_names)
+      @attribute_names = attribute_names
+    end
+
+    def initialize(attributes = {})
+      attributes.symbolize_keys!
+      raise_error_if_invalid_attribute!(attributes.keys)
+
+      @attributes = {}
+
+      self.class.attribute_names.each do |name|
+        @attributes[name] = attributes[name]
+      end
+
+      @old_attributes = @attributes.dup
+    end
+
     def self.inherited(klass)
     end
 
@@ -73,10 +96,6 @@ module MiniActiveRecord
     end
 
     # ******************** Métodos refactorizados **************************
-
-
-
-
     def self.all
       MiniActiveRecord::Model.execute("SELECT * FROM #{self}s").map do |row|
         self.new(row)
@@ -93,6 +112,39 @@ module MiniActiveRecord
       self.where('id = ?', pk).first
     end
 
+    def save
+      if new_record?
+        results = insert!
+      else
+        results = update!
+      end
+      # When we save, remove changes between new and old attributes
+      @old_attributes = @attributes.dup
+      results
+    end
+
+    def [](attribute)
+      raise_error_if_invalid_attribute!(attribute)
+      @attributes[attribute]
+    end
+
+    def []=(attribute, value)
+      raise_error_if_invalid_attribute!(attribute)
+      @attributes[attribute] = value
+    end
+
+    def self.create(attributes)
+      record = self.new(attributes)
+      record.save
+      record
+    end
+
+    def new_record?
+      self[:id].nil?
+    end
+
+
+
     # ******************** Métodos refactorizados **************************
 
     private
@@ -105,6 +157,36 @@ module MiniActiveRecord
         value
       end
     end
+
+    def insert!
+      self[:created_at] = DateTime.now
+      self[:updated_at] = DateTime.now
+
+      fields = self.attributes.keys
+      values = self.attributes.values
+      marks  = Array.new(fields.length) { '?' }.join(',')
+
+      insert_sql = "INSERT INTO #{self.class}s (#{fields.join(',')}) VALUES (#{marks})"
+
+      results = MiniActiveRecord::Model.execute(insert_sql, *values)
+
+      # This fetches the new primary key and updates this instance
+      self[:id] = MiniActiveRecord::Model.last_insert_row_id
+      results
+    end
+
+    def update!
+      self[:updated_at] = DateTime.now
+
+      fields = self.attributes.keys
+      values = self.attributes.values
+
+      update_clause = fields.map { |field| "#{field} = ?" }.join(',')
+      update_sql = "UPDATE #{self.class}s SET #{update_clause} WHERE id = ?"
+
+      # We have to use the (potentially) old ID attribute in case the user has re-set it.
+      MiniActiveRecord::Model.execute(update_sql, *values, self.old_attributes[:id])
+  end
 
   end
 
