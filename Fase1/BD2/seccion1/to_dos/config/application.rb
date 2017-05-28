@@ -1,6 +1,7 @@
 require 'active_record'
 require 'sqlite3'
 require 'yaml'
+require 'csv'
 require_relative '../app/models/task'
 require_relative '../app/controllers/tasks_controller'
 require_relative '../app/views/tasks_view'
