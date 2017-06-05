@@ -1,24 +1,33 @@
-class User < ActiveRecord::Basic
-	
+class User < ActiveRecord::Base
+	has_many :games
+  has_many :decks, :through => :games
 end
 
-class Option < ActiveRecord::Basic
+class Game < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :deck
+  has_many :game_answers
+  has_many :cards, :through => :game_answers
 end
 
-class Question < ActiveRecord::Basic
+class Deck < ActiveRecord::Base
+  has_many :games
+  has_many :users, :through => :games
+  has_many :cards
 end
 
-class Card < ActiveRecord::Basic
+class Card < ActiveRecord::Base
+  belongs_to :deck
+  has_many :options
+  has_many :game_answers
+  has_many :games, :through => :game_answers
 end
 
-class Deck < ActiveRecord::Basic
+class Option < ActiveRecord::Base
+  belongs_to :card
 end
 
-class DeckCard < ActiveRecord::Basic
-end
-
-class Game < ActiveRecord::Basic
-end
-
-class GameAnswer < ActiveRecord::Basic
+class GameAnswer < ActiveRecord::Base
+  belongs_to :game
+  belongs_to :card
 end

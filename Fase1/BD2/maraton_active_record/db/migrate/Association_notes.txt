@@ -1,0 +1,6 @@
+A belongs_to association sets up a one-to-one connection with another model.
+
+A has_one association indicates that each instance of a model contains or possesses one instance of another model.
+
+
+user_find.game_answers.where(score: 1).count

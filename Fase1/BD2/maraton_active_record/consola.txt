@@ -1,0 +1,312 @@
+
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake db:create
+rake aborted!
+NameError: uninitialized constant ActiveRecord::Basic
+Did you mean?  BasicObject
+               ActiveRecord::Base
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/app/models/task.rb:1:in `<top (required)>'
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/config/application.rb:4:in `require_relative'
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/config/application.rb:4:in `<top (required)>'
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/Rakefile:3:in `require_relative'
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/Rakefile:3:in `<top (required)>'
+(See full trace by running task with --trace)
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake db:create
+rake aborted!
+NameError: uninitialized constant ActiveRecord::Basic
+Did you mean?  BasicObject
+               ActiveRecord::Base
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/app/models/task.rb:1:in `<top (required)>'
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/config/application.rb:4:in `require_relative'
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/config/application.rb:4:in `<top (required)>'
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/Rakefile:3:in `require_relative'
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/Rakefile:3:in `<top (required)>'
+(See full trace by running task with --trace)
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake db:create
+touch db/tasks.sqlite3
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake db:migrate
+rake aborted!
+NameError: uninitialized constant CreateTasks
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/Rakefile:19:in `block in <top (required)>'
+StandardError: Directly inheriting from ActiveRecord::Migration is not supported. Please specify the Rails release the migration was written for:
+
+  class CreateTables < ActiveRecord::Migration[4.2]
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/db/migrate/20121011144238_create_tasks.rb:1:in `<top (required)>'
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/Rakefile:19:in `block in <top (required)>'
+Tasks: TOP => db:migrate
+(See full trace by running task with --trace)
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake db:migrate
+rake aborted!
+NameError: uninitialized constant CreateTasks
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/Rakefile:19:in `block in <top (required)>'
+NameError: uninitialized constant CreateTasks
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/Rakefile:19:in `block in <top (required)>'
+Tasks: TOP => db:migrate
+(See full trace by running task with --trace)
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake db:migrate
+== 20121011144238 CreateTasks: migrating ======================================
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:users, {:id=>:integer})
+   -> 0.0017s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:games, {:id=>:integer})
+   -> 0.0013s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:decks, {:id=>:integer})
+   -> 0.0004s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:cards, {:id=>:integer})
+   -> 0.0007s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:options, {:id=>:integer})
+   -> 0.0008s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:game_answers, {:id=>:integer})
+-- belongs_to(:game, {:index=>true})
+rake aborted!
+StandardError: An error has occurred, this and all later migrations canceled:
+
+undefined method `belongs_to' for #<CreateTasks:0x007fb1cb5719d8>
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/db/migrate/20121011144238_create_tasks.rb:34:in `block in change'
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/db/migrate/20121011144238_create_tasks.rb:33:in `change'
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/Rakefile:19:in `block in <top (required)>'
+NoMethodError: undefined method `belongs_to' for #<CreateTasks:0x007fb1cb5719d8>
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/db/migrate/20121011144238_create_tasks.rb:34:in `block in change'
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/db/migrate/20121011144238_create_tasks.rb:33:in `change'
+/Users/codea_mac_17/Desktop/Monfil/codea/Fase1/BD2/maraton_active_record/Rakefile:19:in `block in <top (required)>'
+Tasks: TOP => db:migrate
+(See full trace by running task with --trace)
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake db:migrate
+== 20121011144238 CreateTasks: migrating ======================================
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:users, {:id=>:integer})
+   -> 0.0017s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:games, {:id=>:integer})
+   -> 0.0014s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:decks, {:id=>:integer})
+   -> 0.0005s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:cards, {:id=>:integer})
+   -> 0.0008s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:options, {:id=>:integer})
+   -> 0.0007s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:game_answers, {:id=>:integer})
+   -> 0.0012s
+== 20121011144238 CreateTasks: migrated (0.0073s) =============================
+
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake console
+load error: /Users/codea_mac_17/.irbrc
+NameError: undefined local variable or method `irb' for main:Object
+  /Users/codea_mac_17/.irbrc:1:in `<top (required)>'
+  /Users/codea_mac_17/.rbenv/versions/2.3.0/lib/ruby/2.3.0/irb/init.rb:231:in `load'
+  /Users/codea_mac_17/.rbenv/versions/2.3.0/lib/ruby/2.3.0/irb/init.rb:231:in `run_config'
+  /Users/codea_mac_17/.rbenv/versions/2.3.0/lib/ruby/2.3.0/irb/init.rb:20:in `setup'
+irb(main):001:0> User.all
+=> #<ActiveRecord::Relation []>
+irb(main):002:0> Game.all
+=> #<ActiveRecord::Relation []>
+irb(main):003:0> Deck.all
+=> #<ActiveRecord::Relation []>
+irb(main):004:0> Card.all
+=> #<ActiveRecord::Relation []>
+irb(main):005:0> Option.all
+=> #<ActiveRecord::Relation []>
+irb(main):006:0> GameAnswer.all
+=> #<ActiveRecord::Relation []>
+irb(main):007:0> exir
+NameError: undefined local variable or method `exir' for main:Object
+Did you mean?  exit
+  from (irb):7
+  from /Users/codea_mac_17/.rbenv/versions/2.3.0/bin/irb:11:in `<main>'
+irb(main):008:0> exit
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake db:seed
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake console
+load error: /Users/codea_mac_17/.irbrc
+NameError: undefined local variable or method `irb' for main:Object
+  /Users/codea_mac_17/.irbrc:1:in `<top (required)>'
+  /Users/codea_mac_17/.rbenv/versions/2.3.0/lib/ruby/2.3.0/irb/init.rb:231:in `load'
+  /Users/codea_mac_17/.rbenv/versions/2.3.0/lib/ruby/2.3.0/irb/init.rb:231:in `run_config'
+  /Users/codea_mac_17/.rbenv/versions/2.3.0/lib/ruby/2.3.0/irb/init.rb:20:in `setup'
+irb(main):001:0> User.all
+=> #<ActiveRecord::Relation [#<User id: 1, username: "Fabiola", password: "123", created_at: "2017-06-05 20:07:33", updated_at: "2017-06-05 20:07:33">, #<User id: 2, username: "Fabiola2", password: "234", created_at: "2017-06-05 20:07:33", updated_at: "2017-06-05 20:07:33">]>
+irb(main):002:0> Deck.all
+=> #<ActiveRecord::Relation [#<Deck id: 1, deck_name: "Politica", created_at: "2017-06-05 20:07:33", updated_at: "2017-06-05 20:07:33">, #<Deck id: 2, deck_name: "Geografia", created_at: "2017-06-05 20:07:33", updated_at: "2017-06-05 20:07:33">]>
+irb(main):003:0> User.find(1)
+=> #<User id: 1, username: "Fabiola", password: "123", created_at: "2017-06-05 20:07:33", updated_at: "2017-06-05 20:07:33">
+irb(main):004:0> User.find(1).decks
+=> #<ActiveRecord::Associations::CollectionProxy [#<Deck id: 1, deck_name: "Politica", created_at: "2017-06-05 20:07:33", updated_at: "2017-06-05 20:07:33">, #<Deck id: 2, deck_name: "Geografia", created_at: "2017-06-05 20:07:33", updated_at: "2017-06-05 20:07:33">]>
+irb(main):005:0> Deck.find(1)
+=> #<Deck id: 1, deck_name: "Politica", created_at: "2017-06-05 20:07:33", updated_at: "2017-06-05 20:07:33">
+irb(main):006:0> Deck.find(1).users
+=> #<ActiveRecord::Associations::CollectionProxy [#<User id: 1, username: "Fabiola", password: "123", created_at: "2017-06-05 20:07:33", updated_at: "2017-06-05 20:07:33">]>
+irb(main):007:0> exit
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake db:drop
+rm -f db/tasks.sqlite3
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake db:create
+touch db/tasks.sqlite3
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake db:migrate
+== 20121011144238 CreateTasks: migrating ======================================
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:users, {:id=>:integer})
+   -> 0.0014s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:games, {:id=>:integer})
+   -> 0.0013s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:decks, {:id=>:integer})
+   -> 0.0004s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:cards, {:id=>:integer})
+   -> 0.0008s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:options, {:id=>:integer})
+   -> 0.0008s
+-- adapter_name()
+   -> 0.0000s
+-- adapter_name()
+   -> 0.0000s
+-- create_table(:game_answers, {:id=>:integer})
+   -> 0.0013s
+== 20121011144238 CreateTasks: migrated (0.0071s) =============================
+
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake db:seed
+CodeaCamp17s-Mac-mini:maraton_active_record codea_mac_17$ rake console
+load error: /Users/codea_mac_17/.irbrc
+NameError: undefined local variable or method `irb' for main:Object
+  /Users/codea_mac_17/.irbrc:1:in `<top (required)>'
+  /Users/codea_mac_17/.rbenv/versions/2.3.0/lib/ruby/2.3.0/irb/init.rb:231:in `load'
+  /Users/codea_mac_17/.rbenv/versions/2.3.0/lib/ruby/2.3.0/irb/init.rb:231:in `run_config'
+  /Users/codea_mac_17/.rbenv/versions/2.3.0/lib/ruby/2.3.0/irb/init.rb:20:in `setup'
+irb(main):001:0> User.find(1).decks
+=> #<ActiveRecord::Associations::CollectionProxy [#<Deck id: 1, deck_name: "Cultura general", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Deck id: 2, deck_name: "Geografia", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">]>
+irb(main):002:0> User.find(1).games
+=> #<ActiveRecord::Associations::CollectionProxy [#<Game id: 1, deck_id: 1, user_id: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Game id: 3, deck_id: 2, user_id: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">]>
+irb(main):003:0> Deck.find(2).games
+=> #<ActiveRecord::Associations::CollectionProxy [#<Game id: 2, deck_id: 2, user_id: 2, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Game id: 3, deck_id: 2, user_id: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">]>
+irb(main):004:0> Deck.find(2).users
+=> #<ActiveRecord::Associations::CollectionProxy [#<User id: 2, username: "Fabiola2", password: "234", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<User id: 1, username: "Fabiola", password: "123", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">]>
+irb(main):005:0> Deck.find(2).users.count
+=> 2
+irb(main):006:0> Deck.find(2).cards.count
+=> 14
+irb(main):007:0> Deck.find(2).cards
+=> #<ActiveRecord::Associations::CollectionProxy [#<Card id: 15, deck_id: 2, question: "Belgrado es la capital de:", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Card id: 16, deck_id: 2, question: "El río más largo de África es:", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Card id: 17, deck_id: 2, question: "La capital de Holanda es:", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Card id: 18, deck_id: 2, question: "La capital de Dinamarca es:", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Card id: 19, deck_id: 2, question: "¿Dónde se encuentra el Cabo de San Mateo?", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Card id: 20, deck_id: 2, question: "Machu Pichu se encuentra en:", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Card id: 21, deck_id: 2, question: "El océano de mayor área de la superficie en kilóme...", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Card id: 22, deck_id: 2, question: "La capital de Letonia es:", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Card id: 23, deck_id: 2, question: "Ottawa es la capital de:", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Card id: 24, deck_id: 2, question: "¿Cuál de los siguientes países no tiene frontera c...", created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, ...]>
+irb(main):008:0> Card.find(1).options
+=> #<ActiveRecord::Associations::CollectionProxy [#<Option id: 1, card_id: 1, option: "Amsterdam", correct: false, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Option id: 2, card_id: 1, option: "Londres", correct: false, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Option id: 3, card_id: 1, option: "Paris", correct: true, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">]>
+irb(main):009:0> Card.find(3).options
+=> #<ActiveRecord::Associations::CollectionProxy [#<Option id: 7, card_id: 3, option: "Venezuela", correct: false, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Option id: 8, card_id: 3, option: "Ecuador", correct: false, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Option id: 9, card_id: 3, option: "Brasil", correct: true, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">]>
+irb(main):010:0> User.find(1).game_answers
+NoMethodError: undefined method `game_answers' for #<User:0x007f850b378600>
+Did you mean?  game_ids
+  from /Users/codea_mac_17/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activemodel-5.1.1/lib/active_model/attribute_methods.rb:432:in `method_missing'
+  from (irb):10
+  from /Users/codea_mac_17/.rbenv/versions/2.3.0/bin/irb:11:in `<main>'
+irb(main):011:0> user_find = Games.where(user_id: 1)
+NameError: uninitialized constant Games
+  from (irb):11
+  from /Users/codea_mac_17/.rbenv/versions/2.3.0/bin/irb:11:in `<main>'
+irb(main):012:0> user_find = Game.where(user_id: 1)
+=> #<ActiveRecord::Relation [#<Game id: 1, deck_id: 1, user_id: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<Game id: 3, deck_id: 2, user_id: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">]>
+irb(main):013:0> user_find = Game.find(3)
+=> #<Game id: 3, deck_id: 2, user_id: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">
+irb(main):014:0> user_find = Game.find(1)
+=> #<Game id: 1, deck_id: 1, user_id: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">
+irb(main):015:0> user_find
+=> #<Game id: 1, deck_id: 1, user_id: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">
+irb(main):016:0> GameAnswer.where(game_id: user_find.id)
+=> #<ActiveRecord::Relation [#<GameAnswer id: 1, game_id: 1, card_id: 1, answer: 2, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 2, game_id: 1, card_id: 2, answer: 5, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 3, game_id: 1, card_id: 3, answer: 9, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 4, game_id: 1, card_id: 4, answer: 12, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 5, game_id: 1, card_id: 5, answer: 14, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 6, game_id: 1, card_id: 6, answer: 17, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 7, game_id: 1, card_id: 7, answer: 21, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 8, game_id: 1, card_id: 8, answer: 25, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 9, game_id: 1, card_id: 9, answer: 26, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 10, game_id: 1, card_id: 10, answer: 29, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, ...]>
+irb(main):017:0> user_find)
+SyntaxError: (irb):17: syntax error, unexpected ')', expecting end-of-input
+  from /Users/codea_mac_17/.rbenv/versions/2.3.0/bin/irb:11:in `<main>'
+irb(main):018:0> user_find
+=> #<Game id: 1, deck_id: 1, user_id: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">
+irb(main):019:0> user_find.game_answers
+=> #<ActiveRecord::Associations::CollectionProxy [#<GameAnswer id: 1, game_id: 1, card_id: 1, answer: 2, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 2, game_id: 1, card_id: 2, answer: 5, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 3, game_id: 1, card_id: 3, answer: 9, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 4, game_id: 1, card_id: 4, answer: 12, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 5, game_id: 1, card_id: 5, answer: 14, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 6, game_id: 1, card_id: 6, answer: 17, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 7, game_id: 1, card_id: 7, answer: 21, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 8, game_id: 1, card_id: 8, answer: 25, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 9, game_id: 1, card_id: 9, answer: 26, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 10, game_id: 1, card_id: 10, answer: 29, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, ...]>
+irb(main):020:0> GameAnswer.find(1)
+=> #<GameAnswer id: 1, game_id: 1, card_id: 1, answer: 2, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">
+irb(main):021:0> GameAnswer.find(1).game
+=> #<Game id: 1, deck_id: 1, user_id: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">
+irb(main):022:0> GameAnswer.find(1).sum(score)
+NameError: undefined local variable or method `score' for main:Object
+Did you mean?  source
+  from (irb):22
+  from /Users/codea_mac_17/.rbenv/versions/2.3.0/bin/irb:11:in `<main>'
+irb(main):023:0> user_find.game_answers
+=> #<ActiveRecord::Associations::CollectionProxy [#<GameAnswer id: 1, game_id: 1, card_id: 1, answer: 2, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 2, game_id: 1, card_id: 2, answer: 5, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 3, game_id: 1, card_id: 3, answer: 9, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 4, game_id: 1, card_id: 4, answer: 12, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 5, game_id: 1, card_id: 5, answer: 14, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 6, game_id: 1, card_id: 6, answer: 17, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 7, game_id: 1, card_id: 7, answer: 21, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 8, game_id: 1, card_id: 8, answer: 25, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 9, game_id: 1, card_id: 9, answer: 26, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 10, game_id: 1, card_id: 10, answer: 29, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, ...]>
+irb(main):024:0> GameAnswer.find(1)
+=> #<GameAnswer id: 1, game_id: 1, card_id: 1, answer: 2, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">
+irb(main):025:0> user_find.game_answers
+=> #<ActiveRecord::Associations::CollectionProxy [#<GameAnswer id: 1, game_id: 1, card_id: 1, answer: 2, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 2, game_id: 1, card_id: 2, answer: 5, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 3, game_id: 1, card_id: 3, answer: 9, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 4, game_id: 1, card_id: 4, answer: 12, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 5, game_id: 1, card_id: 5, answer: 14, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 6, game_id: 1, card_id: 6, answer: 17, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 7, game_id: 1, card_id: 7, answer: 21, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 8, game_id: 1, card_id: 8, answer: 25, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 9, game_id: 1, card_id: 9, answer: 26, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 10, game_id: 1, card_id: 10, answer: 29, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, ...]>
+irb(main):026:0> game1_answers = user_find.game_answers
+=> #<ActiveRecord::Associations::CollectionProxy [#<GameAnswer id: 1, game_id: 1, card_id: 1, answer: 2, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 2, game_id: 1, card_id: 2, answer: 5, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 3, game_id: 1, card_id: 3, answer: 9, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 4, game_id: 1, card_id: 4, answer: 12, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 5, game_id: 1, card_id: 5, answer: 14, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 6, game_id: 1, card_id: 6, answer: 17, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 7, game_id: 1, card_id: 7, answer: 21, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 8, game_id: 1, card_id: 8, answer: 25, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 9, game_id: 1, card_id: 9, answer: 26, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 10, game_id: 1, card_id: 10, answer: 29, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, ...]>
+irb(main):027:0> game1_answers.score
+NoMethodError: undefined method `score' for #<GameAnswer::ActiveRecord_Associations_CollectionProxy:0x007f850ac70ba0>
+Did you mean?  scope
+  from /Users/codea_mac_17/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-5.1.1/lib/active_record/relation/delegation.rb:127:in `method_missing'
+  from /Users/codea_mac_17/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-5.1.1/lib/active_record/relation/delegation.rb:97:in `method_missing'
+  from /Users/codea_mac_17/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-5.1.1/lib/active_record/associations/collection_proxy.rb:1136:in `method_missing'
+  from (irb):27
+  from /Users/codea_mac_17/.rbenv/versions/2.3.0/bin/irb:11:in `<main>'
+irb(main):028:0> game1_answers.count
+=> 14
+irb(main):029:0> GameAnswer.find(10)
+=> #<GameAnswer id: 10, game_id: 1, card_id: 10, answer: 29, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">
+irb(main):030:0> user_find.game_answers
+=> #<ActiveRecord::Associations::CollectionProxy [#<GameAnswer id: 1, game_id: 1, card_id: 1, answer: 2, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 2, game_id: 1, card_id: 2, answer: 5, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 3, game_id: 1, card_id: 3, answer: 9, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 4, game_id: 1, card_id: 4, answer: 12, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 5, game_id: 1, card_id: 5, answer: 14, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 6, game_id: 1, card_id: 6, answer: 17, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 7, game_id: 1, card_id: 7, answer: 21, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 8, game_id: 1, card_id: 8, answer: 25, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 9, game_id: 1, card_id: 9, answer: 26, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 10, game_id: 1, card_id: 10, answer: 29, score: 0, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, ...]>
+irb(main):031:0> user_find.game_answers.where(score: 1)
+=> #<ActiveRecord::AssociationRelation [#<GameAnswer id: 3, game_id: 1, card_id: 3, answer: 9, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 4, game_id: 1, card_id: 4, answer: 12, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 5, game_id: 1, card_id: 5, answer: 14, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 7, game_id: 1, card_id: 7, answer: 21, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 8, game_id: 1, card_id: 8, answer: 25, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 9, game_id: 1, card_id: 9, answer: 26, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 13, game_id: 1, card_id: 13, answer: 37, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">, #<GameAnswer id: 14, game_id: 1, card_id: 14, answer: 46, score: 1, created_at: "2017-06-05 21:28:00", updated_at: "2017-06-05 21:28:00">]>
+irb(main):032:0> user_find.game_answers.where(score: 1).count
