@@ -1,3 +1,3 @@
 require_relative 'config/application'
 
-TasksController.new(ARGV)
+TasksController.new.play
