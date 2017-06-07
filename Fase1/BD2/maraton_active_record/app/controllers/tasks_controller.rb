@@ -3,6 +3,8 @@ class TasksController
   def initialize
     @view = TasksView.new
     @logged_user = ""
+    @deck_selected = ""
+    @game = ""
     option = @view.main_menu
     selected_option(option)
   end
@@ -20,6 +22,10 @@ class TasksController
     end
   end
 
+  def save_game(deck, user)
+    @game = Game.create(deck_id: deck, user_id: user)
+  end
+
   def login
     login_data = @view.login_selected
     username = login_data[0]
@@ -27,7 +33,7 @@ class TasksController
     @logged_user = User.autenticate(username, password)
     if @logged_user == nil
       try_again = @view.wrong_account_message(username)
-      try_again == "Y" ? login : exit
+      try_again == "S" ? login : exit
     else
       choose_deck
     end
@@ -58,21 +64,33 @@ class TasksController
   end
 
   def get_cards(topic)
-    p deck = Deck.find_by(deck_name: topic)
-    p cards = Card.where(deck_id: deck.id)
+    deck = Deck.find_by(deck_name: topic)
+    @deck_selected = deck.id
+    cards = Card.where(deck_id: deck.id)
+  end
+
+  def get_options(card_id)
+    Option.where(card_id: card_id)
+  end
+
+  def save_answer(game, card, user_answer)
+    if user_answer.correct == true
+      GameAnswer.create(game_id: game.id, card_id: card.id, answer: user_answer.id, score: 1)
+    else
+      GameAnswer.create(game_id: game.id, card_id: card.id, answer: user_answer.id, score: 0)
+    end
   end
 
   def play
-    #@view.welcome
-    deck = choose_deck
-    # if deck != nil
-    #   cards = @game.get_cards(deck)
-    #   shuffled_cards = @game.shuffle(cards)
-    # end
-    # shuffled_cards.each do |question|
-    #   user_answer = @view.print_question(question)
-    #   analyze_user_answer(user_answer, question.rigth_answer)
-    # end
+    cards = choose_deck
+    cards_array = cards.to_a.shuffle!
+    save_game(@deck_selected, @logged_user.id)
+    cards_array.each do |card|
+      question = card.question
+      options = get_options(card.id)
+      user_answer = @view.print_question(question, options)
+      save_answer(@game, card, user_answer) 
+    end
     # resume
   end
 

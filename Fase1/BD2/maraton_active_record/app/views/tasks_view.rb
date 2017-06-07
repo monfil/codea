@@ -27,7 +27,7 @@ class TasksView
   def wrong_account_message(username)
     system "clear"
     puts "*" * (93 + username.length)
-    puts "\n\nEl username <<#{username}>> no coinciden. Presiona Y para intentar de nuevo, o cualquier tecla para salir.\n"
+    puts "\n\nEl username <<#{username}>> no coinciden. Presiona S para intentar de nuevo, o cualquier tecla para salir.\n"
     puts "\n\n", "*" * (93 + username.length)
     gets.upcase.chomp!
   end
@@ -63,7 +63,30 @@ class TasksView
     gets.chomp!
   end
 
-    def error_deck
+  def print_question(question, options)
+    puts "\n\n", "*" * 87
+    puts "\nPregunta:\n"
+    puts question
+    puts "1. #{options[0].option}."
+    puts "2. #{options[1].option}."
+    puts "3. #{options[2].option}."
+    puts "\nIntento: "
+    answer = gets.chomp!
+    return_answer(answer, question, options)
+  end
+
+  def return_answer(answer, question, options)
+    case answer
+    when "1" then options[0]
+    when "2" then options[1]
+    when "3" then options[2]
+    else
+      puts "Ingresa un valor válido."
+      print_question(question, options)
+    end
+  end
+
+  def error_deck
     puts "Has seleccionado una opción incorrecta, presiona S para intentar de nuevo, o cualquier tecla para terminar."
     gets.chomp!
   end

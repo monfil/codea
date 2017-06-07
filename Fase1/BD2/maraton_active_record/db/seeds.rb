@@ -1,6 +1,6 @@
 # Este archivo sirve para crear registros de prueba
-user1 = User.create(username: "Fabiola", password: "123")
-user2 = User.create(username: "Fabiola2", password: "234")
+user1 = User.create(username: "fab", password: "123")
+user2 = User.create(username: "mew", password: "234")
 
 deck1 = Deck.create(deck_name: "Cultura general")
 deck2 = Deck.create(deck_name: "Geografia")
