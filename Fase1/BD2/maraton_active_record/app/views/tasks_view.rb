@@ -38,7 +38,6 @@ class TasksView
     puts "*" * 62
     puts "\n\t\tHas salido del juego.\n\n"
     puts "*" * 62
-    gets
   end
 
   def error
@@ -84,6 +83,15 @@ class TasksView
       puts "Ingresa un valor válido."
       print_question(question, options)
     end
+  end
+
+  def resume(rigth_answers, wrong_answers)
+    system "clear"
+    puts "*" * 87
+    puts "*" * 87
+    puts "¡El juego ha terminado!"
+    puts "Total de respuestas correctas: #{rigth_answers}."
+    puts "Total de respuestas incorrectas: #{wrong_answers}."
   end
 
   def error_deck

@@ -81,6 +81,12 @@ class TasksController
     end
   end
 
+  def resume
+    right_answers = GameAnswer.where(game_id: @game.id, score: 1).count
+    wrong_answers = GameAnswer.where(game_id: @game.id, score: 0).count
+    @view.resume(right_answers, wrong_answers)
+  end
+
   def play
     cards = choose_deck
     cards_array = cards.to_a.shuffle!
@@ -91,7 +97,7 @@ class TasksController
       user_answer = @view.print_question(question, options)
       save_answer(@game, card, user_answer) 
     end
-    # resume
+    resume
   end
 
   def register

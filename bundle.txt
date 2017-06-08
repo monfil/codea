@@ -1,0 +1,2 @@
+gem install bundle
+export PATH="/home/fabiola/.gem/ruby/2.4.0/bin:$PATH"
