@@ -1,5 +1,13 @@
-class CreateFlights < ActiveRecord::Migration
+class CreateFlights < ActiveRecord::Migration[4.2]
   def change
+    create_table :users do |t|
+    	# Completa con las columnas que necesites
+      t.string :name
+      t.string :email
+      t.boolean :admin
+      t.timestamps
+    end
+
     create_table :flights do |t|
       # Completa con las columnas que necesites
       t.integer :num_flight
@@ -13,32 +21,25 @@ class CreateFlights < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :users do |t|
-    	# Completa con las columnas que necesites
-      t.string :name
-      t.string :email
-      t.boolean :admin
-      t.timestamps
-    end
 
     #crea las tablas restantes
 
-    create_table :user_flights do |t|
-      t.integer :flight_id
-      t.integer :user_id
-      t.timestamps
-    end
-
     create_table :bookings do |t|
       t.integer :num_booking
-      t.integer :flight_id
+      t.belongs_to :flight, index: true
       t.float :total
       t.timestamps
     end
 
+    create_table :user_flights do |t|
+      t.belongs_to :user, index: true
+      t.belongs_to :flight, index: true
+      t.timestamps
+    end
+
     create_table :user_bookings do |t|
-      t.integer :id_bookings
-      t.integer :id_users
+      t.belongs_to :booking, index: true
+      t.belongs_to :user, index: true
       t.timestamps
     end
 
