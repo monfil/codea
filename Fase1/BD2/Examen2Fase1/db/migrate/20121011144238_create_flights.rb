@@ -3,8 +3,8 @@ class CreateFlights < ActiveRecord::Migration[4.2]
     create_table :users do |t|
     	# Completa con las columnas que necesites
       t.string :name
-      t.string :email
-      t.boolean :admin
+      t.string :email#, unique: true
+      t.boolean :admin#, default: false
       t.timestamps
     end
 
