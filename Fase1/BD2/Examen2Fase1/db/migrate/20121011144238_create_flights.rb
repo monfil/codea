@@ -3,8 +3,9 @@ class CreateFlights < ActiveRecord::Migration[4.2]
     create_table :users do |t|
     	# Completa con las columnas que necesites
       t.string :name
-      t.string :email#, unique: true
-      t.boolean :admin#, default: false
+      t.string :email, unique: true
+      t.string :password
+      t.boolean :admin, default: false
       t.timestamps
     end
 
@@ -25,8 +26,8 @@ class CreateFlights < ActiveRecord::Migration[4.2]
     #crea las tablas restantes
 
     create_table :bookings do |t|
-      t.integer :num_booking
       t.belongs_to :flight, index: true
+      t.integer :num_booking
       t.float :total
       t.timestamps
     end

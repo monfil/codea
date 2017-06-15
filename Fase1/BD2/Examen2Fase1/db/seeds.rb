@@ -13,13 +13,13 @@
 #   end
 # end
 
-user1 = User.create(name: "Fabiola Monfil", email: "fab@mail.com", admin: true)
-user2 = User.create(name: "Alma Hernández", email: "almi@mail.com", admin: false)
-user3 = User.create(name: "Mew Hernández", email: "mew@gmail.com", admin: false)
-user4 = User.create(name: "Calvin del Rayo", email: "calvin@mail.com", admin: false)
-user5 = User.create(name: "Chester Monfil", email: "chester@mail.com", admin: false)
-user6 = User.create(name: "Ray Juárez", email: "ray@mail.com", admin: false)
-user7 = User.create(name: "Pakitty Sánchez", email: "pakitty@mail.com", admin: false)
+user1 = User.create(name: "Fabiola Monfil", email: "fab", password: "123", admin: true)
+user2 = User.create(name: "Alma Hernández", email: "almi@mail.com", password: "123", admin: false)
+user3 = User.create(name: "Mew Hernández", email: "mew@gmail.com", password: "123", admin: false)
+user4 = User.create(name: "Calvin del Rayo", email: "calvin@mail.com", password: "123", admin: false)
+user5 = User.create(name: "Chester Monfil", email: "chester@mail.com", password: "123", admin: false)
+user6 = User.create(name: "Ray Juárez", email: "ray@mail.com", password: "123", admin: false)
+user7 = User.create(name: "Pakitty Sánchez", email: "pakitty@mail.com", password: "123", admin: false)
 
 flight1 = Flight.create(num_flight: 96384, date: "2017-06-15", depart: "11:17:16 UTC", from: "Western Sahara", to: "Saudi Arabia", duration: "7:00:00", cost: 829.50, passengers: 8)
 flight2 = Flight.create(num_flight: 35472, date: "2017-06-15", depart: "13:36:40 UTC", from: "Western Sahara", to: "Saudi Arabia", duration: "7:00:00", cost: 748.45, passengers: 10)
