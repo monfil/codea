@@ -63,19 +63,31 @@ class View
 
   def show_booking(booking)
     puts "*" * 78
-    puts "Número de reservación: #{booking.num_booking} "
+    puts "Número de reservación: #{booking.num_booking} Flight ID: #{booking.flight_id} Total: $ #{booking.total}\n\n"
   end
-	# def index
-	# end
 
- #  def create
- #  end
-
- #  def delete
- #  end
-
- #  def update
- #  end
+  def get_flight_data
+    flight_data = []
+    system "clear"
+    puts "*" * 78
+    puts "Ingrese el número de vuelo: "
+    flight_data << gets.chomp
+    puts "Ingrese la fecha: "
+    flight_data << gets.chomp
+    puts "Ingrese la hora de salida: "
+    flight_data << gets.chomp
+    puts "Ingrese el origen: "
+    flight_data << gets.chomp
+    puts "Ingrese el destino: "
+    flight_data << gets.chomp
+    puts "Ingrese la duración: "
+    flight_data << gets.chomp
+    puts "Ingrese el precio: "
+    flight_data << gets.chomp
+    puts "Ingrese el número de lugares disponibles: "
+    flight_data << gets.chomp
+    flight_data
+  end
 
 	def error
     system "clear"

@@ -1,7 +1,6 @@
 class Controller 
   def initialize
     @logged_user = ""
-    # @admin_option = ""
     @view = View.new
     option = @view.welcome_menu
     selected_option(option)
@@ -47,6 +46,7 @@ class Controller
     when "2"
       show_bookings
     when "3"
+      create_fligth
     when "4"
       exit
     else
@@ -68,6 +68,11 @@ class Controller
     end
   end
 
+  def create_fligth
+    flight_data = @view.get_flight_data
+    Flight.create(num_flight: flight_data[0].to_i, date: flight_data[1], depart: flight_data[2], from: flight_data[3], to: flight_data[4], duration: flight_data[5], cost: flight_data[6].to_f, passengers: flight_data[7].to_i)
+  end
+
   def error
     option = @view.error
     selected_option(option)
@@ -76,17 +81,5 @@ class Controller
   def exit
     @view.exit_selected
   end
-  # def index
-  #   # TIP: Aquí debes de llamar al método del mismo nombre de @view
-  # end
-
-  # def add
   
-  # end
-
-  # def delete
-  # end
-
-  # def complete
-  # end
 end

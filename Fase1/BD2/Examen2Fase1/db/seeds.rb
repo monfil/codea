@@ -26,7 +26,7 @@ flight2 = Flight.create(num_flight: 35472, date: "2017-06-15", depart: "13:36:40
 flight3 = Flight.create(num_flight: 63669, date: "2017-06-15", depart: "14:47:27 UTC", from: "Western Sahara", to: "Saudi Arabia", duration: "7:00:00", cost: 4434.0, passengers: 23)
 flight4 = Flight.create(num_flight: 48579, date: "2017-06-16", depart: "14:47:27 UTC", from: "Paris", to: "New York City", duration: "6:00:00", cost: 650.0, passengers: 5)
 flight5 = Flight.create(num_flight: 87302, date: "2017-06-15", depart: "18:00:00 UTC", from: "Buenos Aires", to: "Mexico City", duration: "5:00:00", cost: 80.5, passengers: 15)
-flight6 = Flight.create(num_flight: 31254, date: "2017-06-17", depart: "20:00:00 UTC", from: "New York City", to: "Helsinki", duration: "5:00:00", cost: 70.5, passengers: 10)
+flight6 = Flight.create(num_flight: 31254, date: "2017-06-17", depart: "20:00:00 UTC", from: "New York City", to: "Helsinki", duration: "5:00:00", cost: 70.5, passengers: 10)67
 
 UserFlight.create(user_id: 1, flight_id: 1)
 UserFlight.create(user_id: 2, flight_id: 1)
