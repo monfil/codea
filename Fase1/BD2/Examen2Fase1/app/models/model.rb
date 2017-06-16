@@ -19,6 +19,11 @@ class Flight < ActiveRecord::Base
   has_many :user_flights
  	has_many :users, :through => :user_flights
  	has_many :bookings
+
+  def self.find_flights(from, to, date, passengers)
+    Flight.where(from: from, to: to, date: date).where("passengers >= ?", passengers)
+  end
+
 end
 
 class Booking < ActiveRecord::Base

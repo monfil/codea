@@ -4,9 +4,9 @@ class View
 
   def welcome_menu
     system "clear"
-    puts "*" * 68
-    puts "Bienvenido a Vuelos Codea"
-    puts "*" * 68
+    puts "*" * 78
+    puts "\t\tBienvenido a Vuelos Codea"
+    puts "*" * 78
     puts "1) Reservaciones"
     puts "2) Administrador"
     puts "3) Salir"
@@ -17,7 +17,7 @@ class View
   def login_selected
     system  "clear"
     login_data = []
-    puts "*" * 62
+    puts "*" * 78
     puts "Bienvenido Administrador"
     puts "\nIngrese usuario: "
     login_data << gets.chomp!
@@ -36,16 +36,16 @@ class View
   
   def exit_selected
     system  "clear"
-    puts "*" * 62
+    puts "*" * 78
     puts "\n\t\tHa salido del programa.\n\n"
-    puts "*" * 62
+    puts "*" * 78
   end
 
   def admin_menu
     system  "clear"
-    puts "*" * 62
-    puts "Bienvenido administrador"
-    puts "*" * 62
+    puts "*" * 78
+    puts "\t\t\tBienvenido Administrador"
+    puts "*" * 78
     puts "1) Muestra todos los vuelos"
     puts "2) Muestra todas las reservaciones"
     puts "3) Crea un nuevo vuelo"
@@ -69,7 +69,7 @@ class View
   def get_flight_data
     flight_data = []
     system "clear"
-    puts "*" * 78
+    puts "*" * 68
     puts "Ingrese el número de vuelo: "
     flight_data << gets.chomp
     puts "Ingrese la fecha: "
@@ -89,7 +89,41 @@ class View
     flight_data
   end
 
-	def error
+  def booking_menu
+    system "clear"
+    puts "*" * 68
+    puts "\t\t\t¡¡¡Bienvenido!!!"
+    puts "*" * 68
+    puts "1) Encuentre su boleto de avión"
+    puts "2) Salir"
+    puts "\n\nSeleccione una opción: "
+    gets.chomp!
+  end
+
+  def get_searching_flight_data
+    booking_data = []
+    system "clear"
+    puts "*" * 78
+    puts "\t\t\t¡Encuentre su vuelo!"
+    puts "*" * 78
+    puts "\nOrigen: "
+    booking_data << gets.chomp!
+    puts "Destino: "
+    booking_data << gets.chomp!
+    puts "Fecha: "
+    booking_data << gets.chomp!
+    puts "Número de pasajeros: "
+    booking_data << gets.chomp!
+    booking_data
+  end
+
+  def access_denied
+    system "clear"
+    puts "*" * 78
+    puts "Acceso denegado."
+  end
+
+  def error
     system "clear"
     puts "*" * 78
     puts "Ha seleccionado una opción incorrecta, por favor ingrese una opción válida: \n\n"

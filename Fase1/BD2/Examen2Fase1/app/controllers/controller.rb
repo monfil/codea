@@ -9,7 +9,7 @@ class Controller
   def selected_option(option)
     case option
     when "1"
-      #booking
+      booking
     when "2"
       admin
     when "3"
@@ -20,7 +20,24 @@ class Controller
   end
 
   def booking
-    
+    option = @view.booking_menu
+    case option
+    when "1"
+      find_flights
+    when "2"
+      exit
+    else
+
+    end
+  end
+
+  def find_flights
+    search_data = @view.get_searching_flight_data
+    from = search_data[0]
+    to = search_data[1]
+    date = search_data[2]
+    passengers = search_data[3]
+    available_flights = Flight.find_flights(from, to, date, passengers.to_i)
   end
 
   def admin
@@ -35,7 +52,7 @@ class Controller
       admin_option = @view.admin_menu
       admin_options(admin_option)
     else
-
+      @view.acces_denied
     end
   end
 
