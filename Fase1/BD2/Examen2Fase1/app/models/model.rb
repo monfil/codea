@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   def self.autenticate(email, password)
     user = User.find_by(email: email)
 
-    if user != nil && user.password == password# && user.admin == true
+    if user != nil && user.password == password
       user
     else
       nil

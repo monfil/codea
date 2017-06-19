@@ -37,7 +37,7 @@ class View
   def exit_selected
     system  "clear"
     puts "*" * 78
-    puts "\n\t\tHa salido del programa.\n\n"
+    puts "\n\t\tHa salido de Vuelos Codea.\n\n"
     puts "*" * 78
   end
 
@@ -115,6 +115,30 @@ class View
     puts "Número de pasajeros: "
     booking_data << gets.chomp!
     booking_data
+  end
+
+  def available_flights(flights)
+    system "clear"
+    puts "*" * 78
+    puts "\t\t\tVuelos disponibles From: #{flights[0].from} To: #{flights[0].to}"
+    puts "*" * 78, "\n\n"
+    flights.each_with_index do |flight, index|
+      puts "#{index + 1}) No. de vuelo: #{flight.num_flight}"
+      puts "Date: #{flight.date}, Depart: #{flight.depart}, From: #{flight.from}"
+      puts "To: #{flight.to}, Duration: #{flight.duration}, Precio: $ #{flight.cost}, Lugares: #{flight.passengers}"
+      puts "*" * 78, "\n"
+    end
+    puts "Seleccione su vuelo: "
+    gets.chomp!
+  end
+
+  def no_flights_available
+    system "clear"
+    puts "*" * 78
+    puts "\t\t\tNo hay vuelos disponibles."
+    puts "*" * 78
+    puts "\nPresione S para buscar de nuevo o cualquier tecla para salir: "
+    gets.upcase.chomp!
   end
 
   def access_denied

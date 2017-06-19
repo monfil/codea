@@ -13,20 +13,24 @@
 #   end
 # end
 
-user1 = User.create(name: "Fabiola Monfil", email: "fab", password: "123", admin: true)
-user2 = User.create(name: "Alma Hernández", email: "almi@mail.com", password: "123", admin: false)
-user3 = User.create(name: "Mew Hernández", email: "mew@gmail.com", password: "123", admin: false)
-user4 = User.create(name: "Calvin del Rayo", email: "calvin@mail.com", password: "123", admin: false)
-user5 = User.create(name: "Chester Monfil", email: "chester@mail.com", password: "123", admin: false)
-user6 = User.create(name: "Ray Juárez", email: "ray@mail.com", password: "123", admin: false)
-user7 = User.create(name: "Pakitty Sánchez", email: "pakitty@mail.com", password: "123", admin: false)
+User.create(name: "Fabiola Monfil", email: "fab", password: "123", admin: true)
+User.create(name: "Alma Hernández", email: "almi@mail.com", password: "123", admin: false)
+User.create(name: "Mew Hernández", email: "mew@gmail.com", password: "123", admin: false)
+User.create(name: "Calvin del Rayo", email: "calvin@mail.com", password: "123", admin: false)
+User.create(name: "Chester Monfil", email: "chester@mail.com", password: "123", admin: false)
+User.create(name: "Ray Juárez", email: "ray@mail.com", password: "123", admin: false)
+User.create(name: "Pakitty Sánchez", email: "pakitty@mail.com", password: "123", admin: false)
 
-flight1 = Flight.create(num_flight: 96384, date: "2017-06-15", depart: "11:17:16 UTC", from: "Western Sahara", to: "Saudi Arabia", duration: "7:00:00", cost: 829.50, passengers: 8)
-flight2 = Flight.create(num_flight: 35472, date: "2017-06-15", depart: "13:36:40 UTC", from: "Western Sahara", to: "Saudi Arabia", duration: "7:00:00", cost: 748.45, passengers: 10)
-flight3 = Flight.create(num_flight: 63669, date: "2017-06-15", depart: "14:47:27 UTC", from: "Western Sahara", to: "Saudi Arabia", duration: "7:00:00", cost: 4434.0, passengers: 23)
-flight4 = Flight.create(num_flight: 48579, date: "2017-06-16", depart: "14:47:27 UTC", from: "Paris", to: "New York City", duration: "6:00:00", cost: 650.0, passengers: 5)
-flight5 = Flight.create(num_flight: 87302, date: "2017-06-15", depart: "18:00:00 UTC", from: "Buenos Aires", to: "Mexico City", duration: "5:00:00", cost: 80.5, passengers: 15)
-flight6 = Flight.create(num_flight: 31254, date: "2017-06-17", depart: "20:00:00 UTC", from: "New York City", to: "Helsinki", duration: "5:00:00", cost: 70.5, passengers: 10)67
+Flight.create(num_flight: 96384, date: "2017-06-19", depart: "11:17:16 UTC", from: "Western Sahara", to: "Saudi Arabia", duration: "7:00:00", cost: 829.50, passengers: 8)
+Flight.create(num_flight: 35472, date: "2017-06-19", depart: "13:36:40 UTC", from: "Western Sahara", to: "Saudi Arabia", duration: "7:00:00", cost: 748.45, passengers: 10)
+Flight.create(num_flight: 63669, date: "2017-06-19", depart: "14:47:27 UTC", from: "Western Sahara", to: "Saudi Arabia", duration: "7:00:00", cost: 4434.0, passengers: 23)
+Flight.create(num_flight: 48579, date: "2017-06-19", depart: "14:47:27 UTC", from: "Paris", to: "New York City", duration: "6:00:00", cost: 650.0, passengers: 5)
+Flight.create(num_flight: 87302, date: "2017-06-19", depart: "18:00:00 UTC", from: "Buenos Aires", to: "Mexico City", duration: "5:00:00", cost: 80.5, passengers: 15)
+Flight.create(num_flight: 31254, date: "2017-06-19", depart: "20:00:00 UTC", from: "New York City", to: "Helsinki", duration: "5:00:00", cost: 70.5, passengers: 10)
+Flight.create(num_flight: 13453, date: "2017-06-19", depart: "08:00:00", from: "x", to: "y", duration: "01:00:00", cost: 43.0, passengers: 7)
+Flight.create(num_flight: 13753, date: "2017-06-19", depart: "08:00:00", from: "x", to: "y", duration: "01:00:00", cost: 43.0, passengers: 3)
+Flight.create(num_flight: 13353, date: "2017-06-19", depart: "08:00:00", from: "x", to: "y", duration: "01:00:00", cost: 43.0, passengers: 5)
+Flight.create(num_flight: 13953, date: "2017-06-19", depart: "08:00:00", from: "x", to: "y", duration: "01:00:00", cost: 43.0, passengers: 1)
 
 UserFlight.create(user_id: 1, flight_id: 1)
 UserFlight.create(user_id: 2, flight_id: 1)

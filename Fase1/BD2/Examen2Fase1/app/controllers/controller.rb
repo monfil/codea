@@ -38,6 +38,13 @@ class Controller
     date = search_data[2]
     passengers = search_data[3]
     available_flights = Flight.find_flights(from, to, date, passengers.to_i)
+    if available_flights != []
+      selected_flight = @view.available_flights(available_flights)
+    else
+      again = @view.no_flights_available
+      again == "S" ? find_flights : exit
+    end
+
   end
 
   def admin
