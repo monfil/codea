@@ -1,0 +1,10 @@
+<h1>Find Anagrams!</h1>
+
+<% if @new_word %>
+  <p>Estos son anagramas para '<%= @new_word %>':</p>
+  <!-- <p># Aqui deberás enlistar todos los anagramas</p> -->
+  <%= erb :_anagrams, :layout => false %>
+
+<% end %>
+
+<a href="/">Regresar</a>
