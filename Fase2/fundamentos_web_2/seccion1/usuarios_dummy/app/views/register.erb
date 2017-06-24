@@ -1,0 +1,30 @@
+<p><b>Ingrese los datos para registrarse</b></p>
+
+<form action="/register" method="post">
+	<p>Nombre:</p>
+  <input type="text" name="name" placeholder="Name"><br><br>
+  <p>Email:</p>
+  <input type="email" name="email" placeholder="Email"><br><br>
+  <p>Contraseña:</p>
+  <input type="password" name="password" placeholder="Password"><br><br>
+  <input type="submit" value="Aceptar">
+</form>
+
+<% if @error_name %>
+    <p>Name <%= @error_name[0] %></p>
+<% end %>
+
+<% if @error_email %>
+    <p>Email <%= @error_email[0] %></p>
+<% end %>
+
+<% if @error_password %>
+    <p>Password <%= @error_password[0] %></p>
+<% end %>
+
+<br>
+<div align="right">
+	<form action="/" method="get">
+	<input type="submit" value="Regresar">
+</form>
+</div>
