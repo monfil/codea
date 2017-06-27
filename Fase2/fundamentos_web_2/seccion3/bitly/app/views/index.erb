@@ -7,7 +7,7 @@
 <br>
 <% if @urls && @url_input == "1" %>
 	<% @urls.each_with_index do |url, index| %>
-		<p><%= index + 1 %>. <a href="<%= url.long_url%>" target="_blank"><%= "http://#{url.short_url}" %></a></p>
+		<p><%= index + 1 %>. <a href="/url/<%= url.id %>"><%= "http://#{url.short_url}" %></a></p>
 	<% end %>		
 <% end %>
 <br>

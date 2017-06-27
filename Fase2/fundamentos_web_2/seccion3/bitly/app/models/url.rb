@@ -12,4 +12,8 @@ class Url < ActiveRecord::Base
 		end
 		self.short_url = short
 	end
+
+	def self.increment(id)
+		Url.find(id).increment!(:click_count)
+	end
 end
