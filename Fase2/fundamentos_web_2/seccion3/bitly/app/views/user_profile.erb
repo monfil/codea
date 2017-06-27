@@ -1,0 +1,21 @@
+<p><b>Welcome, <%= @user.name %></b></p>
+<br>
+<form action="/url" method="post">
+ 	<input type="text" name="url" placeholder="Paste a link to shorten it">
+  <input type="submit" value="Shorten">
+</form>
+<br>
+<% if @user_urls %>
+	<p>This are your shorted URLs:</p>
+	<br>
+	<% @user_urls.each_with_index do |url, index| %>
+		<p><%= index + 1 %>. <a href="<%= url.long_url%>" target="_blank"><%= "http://#{url.short_url}" %></a></p>
+	<% end %>	
+<% else %>
+	<p>You don't have shorted URLs.</p>	
+<% end %>
+<div align="right">
+	<form action="/logout" method="get">
+		<input type="submit" value="Logout">
+	</form>
+</div>

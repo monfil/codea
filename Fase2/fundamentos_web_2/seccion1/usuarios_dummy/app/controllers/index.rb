@@ -4,10 +4,6 @@ get '/' do
   erb :index
 end
 
-post '/' do
-
-end
-
 get '/register' do
   erb :register
 end

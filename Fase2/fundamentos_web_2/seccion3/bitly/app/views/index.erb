@@ -1,0 +1,16 @@
+<h1>URL Shortener</h1>
+  
+<form action="/url" method="post">
+ 	<input type="text" name="url" placeholder="Paste a link to shorten it">
+  <input type="submit" value="Shorten">
+</form>
+<br>
+<% if @urls && @url_input == "1" %>
+	<% @urls.each_with_index do |url, index| %>
+		<p><%= index + 1 %>. <a href="<%= url.long_url%>" target="_blank"><%= "http://#{url.short_url}" %></a></p>
+	<% end %>		
+<% end %>
+<br>
+<div align="right">
+	<a href="/login">LOGIN</a> <a href="/register">SIGN UP</a>
+</div>
