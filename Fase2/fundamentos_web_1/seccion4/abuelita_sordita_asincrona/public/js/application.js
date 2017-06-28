@@ -7,5 +7,11 @@ $(document).ready(function(){
 	$("#abuelita").on("submit", function(event){
 		event.preventDefault(); //JQuery toma el control
 		console.log("JQuery tomó el control");
+		var info = $(this).serialize();
+		console.log(info);
+		$.post("/abuelita", info, function(data){
+			console.log(data);
+			$("#grandma_answer").text("Tu abuelita dice: " + data);
+		});
 	});
 });
