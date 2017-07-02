@@ -1,0 +1,22 @@
+.container {
+  margin: 20px auto;
+  width: 550px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+th {
+  text-align: left;
+}
+
+.roundfield {
+    width: 530px;
+    background-color: #cee3f8;
+    border-radius: 4px;
+    padding: 5px 10px 10px 10px;
+    font-size: large;
+}
+
+.c-form-group {
+    margin-bottom: 10px;
+    position: relative;
+}

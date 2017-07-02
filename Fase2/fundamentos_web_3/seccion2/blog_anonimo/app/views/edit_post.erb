@@ -1,0 +1,27 @@
+<br>
+<form id="update_post" action="/update_post" method="post">
+	<div align="center" class="roundfield">
+		<div align="left"><span>Título</span></div>
+		<div class="c-form-group">
+			<input name="title" style="margin: 0px; width: 515px;" value="<%= @post.title %>" >
+		</div>
+		<div align="left"><span>Editar</span></div>
+		<div class="c-form-group">
+			<textarea name="body" rows="2" required="" style="margin: 0px; width: 515px; height: 115px;"> <%= @post.body %> </textarea>
+		</div>
+		<div class="c-form-group" align="left">
+			Tags: <input name="tags" style="margin: 0px; width: 515px;" value="<%= @tags_string %>">
+			<font size="2">Sepáralas con comas.</font>
+		</div>
+		<div align="center">
+			<input type="submit" value="Enviar">
+		</div>
+	</div>
+	<br>
+</form>
+
+<form action='/' method="get">
+	<div align="right">
+		<input type="submit" value="Regresar" onClick="location.href='/'"> 
+	</div>
+</form>

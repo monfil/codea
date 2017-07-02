@@ -1,0 +1,19 @@
+<% if @post %>
+	<br>
+	<div class="roundfield">
+		<p><%= @post.title %></a></p>
+		<p><%= @post.body %></p>
+	</div>
+<% end %>
+<br>
+<div align="right">
+	<form action="/" method="get">
+		<input type="submit" value="Regresar">
+	</form>
+</div>
+<br>
+<div align="right">
+	<form action="/edit_post/<%= @post.id %>" method="get">
+		<input type="submit" value="Editar">
+	</form>
+</div>

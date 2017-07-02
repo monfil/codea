@@ -1,0 +1,15 @@
+<% if @posts_tag %>
+	<br>
+	<% @posts_tag.each do |post| %>
+		<div class="roundfield">
+			<p><a href="/post/<%= post.id %>"><%= post.title %></a></p>
+		</div>
+		<br>
+	<% end %>
+<% end %>
+<br>
+<div align="right">
+	<form action="/" method="get">
+		<input type="submit" value="Regresar">
+	</form>
+</div>

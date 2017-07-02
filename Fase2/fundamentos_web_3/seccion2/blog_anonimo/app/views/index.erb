@@ -1,0 +1,37 @@
+<h1>Ribbit</h1>
+<!-- <form action="/show_posts" method="post">
+</form> -->
+<form id="new_post" action="/new_post" method="post">
+	<div align="center" class="roundfield">
+		<div align="left"><span>Título</span></div>
+		<div class="c-form-group">
+			<input name="title" style="margin: 0px; width: 515px;">
+		</div>
+		<div align="left"><span>Escribe aquí tu post</span></div>
+		<div class="c-form-group">
+			<textarea name="body" rows="2" required="" style="margin: 0px; width: 515px; height: 115px;"></textarea>
+		</div>
+		<div class="c-form-group" align="left">
+			Tags: <input name="tags" style="margin: 0px; width: 515px;">
+			<font size="2">Sepáralas con comas.</font>
+		</div>
+		<div align="center">
+			<input type="submit" value="Enviar">
+		</div>
+	</div>
+	<br>
+</form>
+
+<% if @all_posts %>
+	<% @all_posts.each_with_index do |post, index| %>
+		<div class="roundfield">
+			<p><%= index + 1 %>. <a href="/post/<%= post.id %>"><%= post.title %></a></p>
+			<% post_tags = post.tags %>
+			<p>Tags: </p>
+			<% post_tags.each do |tag| %>
+				<p style="font-size:10px"><a href="/tag/<%= tag.id %>"><%= tag.tag %></a></p>
+			<% end %>
+		</div>
+		<br>
+	<% end %>		
+<% end %>
