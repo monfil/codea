@@ -37,4 +37,12 @@ class Tag < ActiveRecord::Base
 		p new_tags_array
 	end
 
+	def self.delete_tags(tags)
+		tags.each do |tag|
+			p post_tag = tag.posts
+			p "&" * 90
+			p tag.delete if post_tag == []
+		end		
+	end
+
 end

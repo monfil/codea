@@ -28,6 +28,17 @@ post '/new_post' do
 	end
 end
 
-post '/update_post' do
+post '/update_post/:id' do
 	
+end
+
+post '/delete_post/:id' do
+	post_id = params[:id]
+	post = Post.find(post_id)
+	p "+" * 90
+	p tags = post.tags
+	p "ELIMINANDO TAG " * 5
+	p post.destroy
+	p Tag.delete_tags(tags)
+	erb :post_deleted
 end
