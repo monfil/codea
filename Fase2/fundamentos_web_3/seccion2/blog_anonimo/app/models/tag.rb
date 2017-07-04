@@ -35,13 +35,4 @@ class Tag < ActiveRecord::Base
 		new_tags_array
 	end
 
-	# def self.delete_tags(tags)
-	# 	tags.each do |tag|
-	# 		t = Tag.find(tag.id)
-	# 		p post_tag = t.posts
-	# 		p "&" * 90
-	# 		p t.destroy if post_tag == []
-	# 	end		
-	# end
-
 end
