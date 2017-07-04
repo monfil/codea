@@ -24,12 +24,15 @@
 
 <% if @all_posts %>
 	<% @all_posts.each_with_index do |post, index| %>
-		<div class="roundfield">
+		<div>
 			<p><%= index + 1 %>. <a href="/post/<%= post.id %>"><%= post.title %></a></p>
 			<% post_tags = post.tags %>
 			<p>Tags: </p>
 			<% post_tags.each do |tag| %>
-				<p style="font-size:10px"><a href="/tag/<%= tag.id %>"><%= tag.tag %></a></p>
+				<span class="tags-format"> 
+					<a href="/tag/<%= tag.id %>"><%= tag.tag %></a>  <a href="/delete_tag/<%= tag.id %>">Eliminar</a>/<a href="/edit_tag/<%= tag.id %>">Editar</a>
+					<br>
+				</span>
 			<% end %>
 		</div>
 		<br>

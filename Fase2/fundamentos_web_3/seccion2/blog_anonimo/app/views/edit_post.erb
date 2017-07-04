@@ -1,9 +1,10 @@
 <br>
-<form id="update_post" action="/update_post" method="post">
+<form id="update_post" action="/update_post/<%= @post.id %>" method="post">
 	<div align="center" class="roundfield">
-		<div align="left"><span>Título</span></div>
-		<div class="c-form-group">
-			<input name="title" style="margin: 0px; width: 515px;" value="<%= @post.title %>" >
+		<div align="left"><span>Título del post: <%= @post.title %></span></div>
+		<div align="left"class="c-form-group">
+			<p></p>
+			<!-- <input name="title" style="margin: 0px; width: 515px;" value="<%= @post.title %>" > -->
 		</div>
 		<div align="left"><span>Editar</span></div>
 		<div class="c-form-group">
@@ -19,7 +20,7 @@
 	</div>
 	<br>
 </form>
-<br>
+<br>	
 <form action='/' method="get">
 	<div align="right">
 		<input type="submit" value="Regresar" onClick="location.href='/'"> 

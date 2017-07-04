@@ -6,13 +6,4 @@ class Post < ActiveRecord::Base
   validates :title, :body, :presence => true
   validates :title, :body, :uniqueness => true
 
-  # after_destroy :destroy_tags
-
-  # private
-
-  # def destroy_tags
-  # 	p "*" * 90
-  # 	p "destruyendo tags"
-  # 	p self.tags.destroy_all
-  # end
 end

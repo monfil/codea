@@ -1,6 +1,6 @@
 class Tag < ActiveRecord::Base
   # Remember to create a migration!
-  has_many :post_tags
+  has_many :post_tags, dependent: :destroy
   has_many :posts, :through => :post_tags
 
   validates :tag, :presence => true
@@ -25,24 +25,23 @@ class Tag < ActiveRecord::Base
 	def self.analyze_tags(tags_array)
 		new_tags_array = []
 		tags_array.each do |tag|
-			p "****Busca el tag" * 5
-			p find_tag = Tag.find_by(tag: tag)
+			find_tag = Tag.find_by(tag: tag)
 			if  find_tag == nil
 				new_tags_array << Tag.create(tag: tag)
 			else
 				new_tags_array << find_tag
 			end
 		end
-		p "ESTE ES EL ARREGLO ESTE ES EL ARREGLO ESTE ES EL ARREGLO ESTE ES EL ARREGLO ESTE ES EL ARREGLO"
-		p new_tags_array
+		new_tags_array
 	end
 
-	def self.delete_tags(tags)
-		tags.each do |tag|
-			p post_tag = tag.posts
-			p "&" * 90
-			p tag.delete if post_tag == []
-		end		
-	end
+	# def self.delete_tags(tags)
+	# 	tags.each do |tag|
+	# 		t = Tag.find(tag.id)
+	# 		p post_tag = t.posts
+	# 		p "&" * 90
+	# 		p t.destroy if post_tag == []
+	# 	end		
+	# end
 
 end
