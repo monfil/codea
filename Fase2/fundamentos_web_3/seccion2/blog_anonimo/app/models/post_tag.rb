@@ -11,13 +11,18 @@ class PostTag < ActiveRecord::Base
   end
 
   def self.update_tags(post, old_tags, new_tags)
-  	tags_to_drop = old_tags - new_tags
-  	tags_to_drop.each do |tag|
-  		post_tag = PostTag.find_by(post_id: post.id, tag_id: tag.id)
-  		post_tag.destroy
-  	end
-  	all_tags = old_tags + new_tags
-  	new_tags = all_tags.uniq
+    # p "***TAGS VIEJAS" * 6
+    # p old_tags
+    # p "***TAGS NUEVAS" * 6
+    # p new_tags
+    # p "***TAGS A ELIMINAR" * 6
+    delete_tags = old_tags - new_tags
+    delete_tags.each do |tag|
+      row = PostTag.find_by(post_id: post.id, tag_id: tag.id)
+      row.destroy
+    end
+    # p "***TAGS DEFINITIVAS" * 6
+    new_tags
   end
   
 end
