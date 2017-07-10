@@ -1,0 +1,27 @@
+<header>
+  <img src="img/codea-logo.png" id="logo">
+</header>
+
+<h1 id="main-title">Bienvenido a Rayuela</h1>
+<form id="new_game" action="/game" method="post">
+  <div>Nombre de los jugadores: 
+    <input type="text" name="player1" placeholder="Jugador 1">
+    <input type="text" name="player2" placeholder="Jugador 2">
+    <br>
+    <br>
+    <div align="center">
+      <input type="submit" value="Aceptar">
+    </div>
+  </div>
+
+</form>
+
+<div id="game">
+  <%= erb :_game, layout: false %>
+</div>
+
+<div id="stats">
+  <br>
+  <br>
+  <%= erb :_stats, layout: false %>
+</div>

@@ -1,0 +1,22 @@
+<% if @players_array %>
+  <h1 id="main-title">¡A JUGAR!</h1>
+  <button id="start_btn">Jugar</button><br><br>
+  <p id="countdown"></p>
+  <table class="table">
+    <tr id="Player1">
+      <td id="player1"><strong id="p1"><%= @players_array[0].name %></strong></td>
+      <td class="active" id="0"></td>
+      <% 99.times do |id| %>
+        <td class="new" id="<%= id + 1 %>"></td>
+      <% end %>
+    </tr>
+
+    <tr id="Player2">
+      <td id="player2"><strong id="p2"><%= @players_array[1].name %></strong></td>
+      <td class="active" id="0"></td>
+      <% 99.times do |id| %>
+        <td class="new" id="<%= id + 1 %>"></td>
+      <% end %>
+    </tr>
+  </table>
+<% end %>

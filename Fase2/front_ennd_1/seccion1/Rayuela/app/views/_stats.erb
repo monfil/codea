@@ -1,0 +1,26 @@
+<% if @players %>
+	<div align="center">
+		<h1>Resultados...</h1>
+		<br>
+		<table id="table-results">
+		  <tr>
+		    <th>Jugador</th>
+		    <th>Jugados</th>
+		    <th>Ganados</th>
+		    <th>Perdidos</th>
+		  </tr>
+			<% @players.each do |jugador| %>
+			  <% player = Player.find_by(name: jugador) %>
+			  <% all_games = player.rounds %>
+			  <% won_games = all_games.where(score: 1) %>
+			  <% lost_games = all_games.where(score: 0) %>
+		  	<tr>
+			  	<td><%= player.name %></td>
+			  	<td><%= all_games.count %></td>
+			  	<td><%= won_games.count %></td>
+			  	<td><%= lost_games.count %></td>
+		  	</tr>
+			<% end %>
+		</table>
+	</div>
+<% end %>
