@@ -1,0 +1,28 @@
+<h1>Winners Record</h1>
+
+<div class="centerTable">
+	<table class="hovertable">
+		<!-- ¿Qué va en esta parte para mostrar la lista de ganadores? -->
+		
+			<% if @stats != {} %>
+				  <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				  	<th>Player</th>
+				  	<th>Games won</th>
+				  </tr>
+				  <% @stats.each do |player, games| %>
+				  	<tr>
+				  		<td><%= player %></td>
+				  		<td><%= games %></td>
+				  	</tr>
+				  <% end %>
+			<% end %>
+		
+	</table>
+</div>
+
+<aside>
+  <h3></h3>
+  <form method="post" action="/new_game">
+    <input type="submit" value="Play">
+  </form>
+</aside>

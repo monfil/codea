@@ -1,0 +1,12 @@
+user1 = User.create(name: "Mew", email: "mew@mail.com", password:"123")
+user2 = User.create(name: "Moyo", email: "moyo@mail.com", password:"123")
+user3 = User.create(name: "Viten", email: "viten@mail.com", password:"123")
+
+Round.create(user_id: 1, destroyed_submarines: 1, result: "Almotst!")
+Round.create(user_id: 1, destroyed_submarines: 2, result: "Winner!")
+Round.create(user_id: 1, destroyed_submarines: 2, result: "Winner!")
+Round.create(user_id: 2, destroyed_submarines: 2, result: "Winner!")
+Round.create(user_id: 2, destroyed_submarines: 1, result: "Almotst!")
+Round.create(user_id: 3, destroyed_submarines: 2, result: "Winner!")
+Round.create(user_id: 1, destroyed_submarines: 2, result: "Winner!")
+Round.create(user_id: 3, destroyed_submarines: 2, result: "Winner!")

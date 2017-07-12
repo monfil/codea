@@ -159,9 +159,6 @@ function getScore(){
 		console.log(results);
 		$("#stats").html(e);
 	});
-	// var dat = $(this).serialize();
-	// 	console.log("***" + dat);
-	// 	$("#stats").html(dat); // **
 }
 
 // Cuando jugador 2 llega a 99

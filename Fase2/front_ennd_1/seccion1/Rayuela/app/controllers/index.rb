@@ -29,7 +29,6 @@ post '/results' do
 	p new_round = Round.new_round(game, @players, scores)
  	if request.xhr?
  		p "****HUBO PETICIÓN AJAX" * 5
- 		# p @new_round
  		erb :_stats, layout: false
  	end
 end
