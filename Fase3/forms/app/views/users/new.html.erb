@@ -1,0 +1,32 @@
+<h1>Welcome para crear nuevos usuarios</h1>
+
+<!-- <form accept-charset="UTF-8" action='/users' method="post">
+	Name:  <input type="text" name="user[username]"><br><br>
+	Email: <input type="text" name="user[email]"><br><br>
+	Password: <input type="password" name="user[password]"><br><br>
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="submit" value="Save">
+</form> -->
+
+<%= render "shared/error_messages" %>
+
+<%= form_for @user, :as => :user, :url => users_path do |f| %>
+	<p>
+		<%= f.label :username %><br>
+		<%= f.text_field :username %>
+	</p>
+
+	<p>
+		<%= f.label :email %><br>
+		<%= f.text_field :email %>
+	</p>
+
+	<p>
+		<%= f.label :password %><br>
+		<%= f.password_field :password %>
+	</p>
+
+	<p>
+		<%= f.submit "Save" %>
+	</p>
+<% end %>

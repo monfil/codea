@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-	http_basic_authenticate_with name: 'dhh', password: "secret", except: [:index, :show]
+	http_basic_auth enticate_with name: 'dhh', password: "secret", except: [:index, :show]
 
 	# Manda todos los artículos a la vista que los lista
 	def index

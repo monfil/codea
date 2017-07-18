@@ -1,0 +1,16 @@
+<h1>Abuelita Sordita</h1>
+
+<%= form_tag ("/grandma"), method: "post" do %>
+  <% if @grandma_answer %>
+    <p>Tu Abuelita dice: "<span id="grandma_says"><%= @grandma_answer %></span>"</p>
+  <% end %>
+
+  <p id="grandma_answer"></p>
+  
+  <p>
+    Dile algo a tu abuelita: 
+    <br><br>
+    <%= text_field_tag (:user_input) %>
+    <%= submit_tag ("¡Dilo!") %>
+  </p>
+<% end %>
