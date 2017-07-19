@@ -22,6 +22,25 @@ class GamesController < ApplicationController
 	def score
 		p "*** Formulario de respuestas " * 2
 		p params
+		game = params[:game]
+		params.each do |k|
+			if k.to_i != 0
+				user_answer = Option.find(k.to_i)
+				if user_answer.correct == true
+					p GameAnswer.create(game_id: game, card_id: user_answer.card_id, answer: user_answer.id, score: 0)
+				else
+					p GameAnswer.create(game_id: game, card_id: user_answer.card_id, answer: user_answer.id, score: 0)
+				end
+			end
+		end
+		redirect_to results_path(game)
+	end
+
+	def results
+		p "*" *30
+		p params[:game]
+		p @game_answers = GameAnswer.where(game_id: params[:game].to_i)
+		render 'resume'
 	end
 
 end

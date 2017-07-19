@@ -19,6 +19,10 @@ Rails.application.routes.draw do
 
   get '/cards/:game', to: 'cards#get_cards', as: 'game_cards'
 
-  post '/score', to: 'games#score', as: 'score'
+  post '/score/:game', to: 'games#score', as: 'score'
+
+  get '/score/:game/results', to: 'games#results', as: 'results'
+
+  get '/logout', to: 'users#logout', as: 'logout'
 
 end

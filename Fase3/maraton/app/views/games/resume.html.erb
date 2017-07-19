@@ -1,0 +1,9 @@
+<h1>Resumen del juego</h1>
+
+<h3>Deck: <%= @game_answers[0].card.deck.deck_name %></h3>
+<h3>Respuestas contestadas: <%= @game_answers.count %></h3>
+<h3>Respuestas correctas: <%= @game_answers.where(score: 1).count %></h3>
+<h3>Respuestas incorrectas: <%= @game_answers.where(score: 0).count %></h3>
+
+<%= link_to 'Jugar de nuevo', deck_show_path %>
+<%= link_to 'Salir', logout_path %>

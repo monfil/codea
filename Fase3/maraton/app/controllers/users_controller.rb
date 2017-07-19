@@ -34,6 +34,11 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def logout
+		session.clear
+		render '/maraton/index'
+	end
+
 	private
 		def user_params
 			params.require(:user).permit(:username, :password)
