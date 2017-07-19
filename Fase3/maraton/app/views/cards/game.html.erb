@@ -1,0 +1,23 @@
+<% deck_name = @deck_cards[0].deck.deck_name %>
+
+
+<h1>Maratón -- <%= deck_name %> </h1>
+
+<%= form_for @game_answer, :as => :game_answer, :url => score_path do |f| %>
+
+	<ol>
+		<% @deck_cards.each do |card| %>
+			<li>
+				<%= card.question %><br>
+				<% card.options.each do |option| %>
+					<%= radio_button_tag option.id, option.option %>
+					<%= f.label option.option %>
+					<br>
+				<% end %>
+			</li>
+			<br>
+		<% end %>
+	</ol>
+
+	<%= f.submit 'Enviar' %>
+<% end %>

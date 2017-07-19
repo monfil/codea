@@ -1,0 +1,9 @@
+<h1>¡A jugar!</h1>
+
+<h3>Selecciona el tema:</h3>
+
+<ul>
+	<% @decks.each do |deck| %>
+		<li><%= link_to deck.deck_name, new_game_path(deck) %></li>
+	<% end %>
+</ul>
